@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Headers, Http, Response } from '@angular/http';
-import { Observable } from 'rxjs/Observable';
+import { EmployeeService } from './employee.service';
 
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
@@ -14,27 +13,18 @@ export class AppComponent implements OnInit {
   title = 'Tag Skills';
 
   public employees: Employee[];
+  public errorMessage: any = '';
 
-  private _employeesUrl = 'api/employees';
-
-  constructor(private _http: Http) { }
-
-  getEmployees(): Observable<Employee[]> {
-    return this._http.get(this._employeesUrl)
-      .map(response => response.json().data as Employee[])
-      .catch(this._handleError);
+  getEmployees(){
+    this._employeeService.getEmployees()
+      .subscribe(employees => this.employees = employees,
+      error => this.errorMessage = <any>error);
   }
 
-  private _handleError(error: any) {
-    let errMsg = (error.message) ? error.message :
-      error.status ? `${error.status} - ${error.statusText}` : 'Server error';
-    console.error(errMsg); // log to console instead
-    return Observable.throw(errMsg);
-  }
+  constructor(private _employeeService: EmployeeService) { }
 
   ngOnInit() {
-    this.getEmployees()
-      .subscribe(employees => this.employees = employees);
+    this.getEmployees();
   }
 
 

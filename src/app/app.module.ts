@@ -7,6 +7,8 @@ import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService } from './in-memory-data.service';
 
 import { AppComponent } from './app.component';
+import { EmployeeService } from './employee.service';
+
 
 @NgModule({
   declarations: [
@@ -18,7 +20,7 @@ import { AppComponent } from './app.component';
     HttpModule,
     InMemoryWebApiModule.forRoot(InMemoryDataService),
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [ EmployeeService ],
+  bootstrap: [ AppComponent ]
 })
 export class AppModule { }

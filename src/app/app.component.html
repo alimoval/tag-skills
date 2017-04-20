@@ -22,18 +22,46 @@
 
   <!--Main content-->
   <div class="ui three column stackable grid">
-    <div class="three wide column">
-      <sm-segment class="raised">1</sm-segment>
-    </div>
+    <sm-segment class="three wide column">
+      1
+    </sm-segment>
     <div class="nine wide column">
       <div class="row">
-        <sm-segment>Showing 10 of 15</sm-segment>
-        <br>
-        <sm-segment *ngFor="let employee of employees" class="raised">{{employee.name}}</sm-segment>
+        <sm-segment>
+          <div class="ui three column grid">
+            <div class="column">Showing 10 of 15</div>
+            <div class="column">
+              <div class="ui small selection dropdown">
+                <input type="text" name="gender">
+                <i class="dropdown icon"></i>
+                <div class="default text">Sort by name A-Z</div>
+                <div class="menu">
+                  <div class="item" data-value="1">Male</div>
+                  <div class="item" data-value="0">Female</div>
+                </div>
+              </div>
+            </div>
+            <div class="right aligned column">
+              <i class="block layout large icon"></i>
+              <i class="list layout large icon"></i>
+            </div>
+          </div>
+        </sm-segment>
+        <div class="ui middle aligned selection list">
+          <div *ngFor="let employee of employees" class="item">
+            <sm-segment>
+              <img class="ui avatar image" src="{{employee.imgSrc}}"> {{employee.name}}
+              <span class="tiny right floated">
+                  {{employee.position}}
+                  <i class="{{employee.skillIcon}} black icon"></i>
+                </span>
+            </sm-segment>
+          </div>
+        </div>
       </div>
     </div>
     <div class="three wide column">
-      <sm-segment class="raised">3</sm-segment>
+      <sm-segment>3</sm-segment>
     </div>
   </div>
 </div>

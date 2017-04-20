@@ -1,10 +1,39 @@
-<h1>
-  {{title}}
-</h1>
-<div class="ui stackable grid container">
-  <div class="one wide column">one</div>
-  <div class="ten wide aligned column">
-    <sm-segment *ngFor="let employee of employees" class="raised">{{employee.name}}</sm-segment>
+<br>
+<div class="ui main container">
+
+  <!--Top row-->
+  <div class="ui three column grid">
+    <div class="three wide left aligned column">
+      <i class="tags large icon"></i> TagSkills
+    </div>
+    <div class="nine wide column">
+      <div class="row">
+        <div class="ui icon input fluid">
+          <input type="text" placeholder="Search...">
+          <i class="search link icon"></i>
+        </div>
+      </div>
+    </div>
+    <div class="three wide right aligned column">
+      <i class="alarm icon large icon"></i>
+      <img class="ui avatar image" src="http://semantic-ui.com/images/avatar/small/stevie.jpg">
+    </div>
   </div>
-  <div class="five wide aligned column">five</div>
+
+  <!--Main content-->
+  <div class="ui three column stackable grid">
+    <div class="three wide column">
+      <sm-segment class="raised">1</sm-segment>
+    </div>
+    <div class="nine wide column">
+      <div class="row">
+        <sm-segment>Showing 10 of 15</sm-segment>
+        <br>
+        <sm-segment *ngFor="let employee of employees" class="raised">{{employee.name}}</sm-segment>
+      </div>
+    </div>
+    <div class="three wide column">
+      <sm-segment class="raised">3</sm-segment>
+    </div>
+  </div>
 </div>

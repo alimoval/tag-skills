@@ -1,4 +1,10 @@
 <h1>
   {{title}}
 </h1>
-<div *ngFor="let employee of employees">{{employee.name}}</div>
+<div class="ui stackable grid container">
+  <div class="one wide column">one</div>
+  <div class="ten wide aligned column">
+    <sm-segment *ngFor="let employee of employees" class="raised">{{employee.name}}</sm-segment>
+  </div>
+  <div class="five wide aligned column">five</div>
+</div>

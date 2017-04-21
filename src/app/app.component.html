@@ -4,7 +4,7 @@
   <!--Top row-->
   <div class="ui three column grid">
     <div class="three wide left aligned column">
-      <i class="tags large icon"></i> TagSkills
+      <i class="tags large icon button"></i> TagSkills
     </div>
     <div class="nine wide column">
       <div class="row">
@@ -15,7 +15,7 @@
       </div>
     </div>
     <div class="three wide right aligned column">
-      <i class="alarm icon large icon"></i>
+      <i class="alarm large icon button"></i>
       <img class="ui avatar image" src="http://semantic-ui.com/images/avatar/small/stevie.jpg">
     </div>
   </div>
@@ -27,34 +27,45 @@
     </sm-segment>
     <div class="nine wide column">
       <div class="row">
-        <sm-segment>
+        <sm-segment [style.padding.em]="0">
           <div class="ui three column grid">
-            <div class="column">Showing 10 of 15</div>
-            <div class="column">
-              <div class="ui small selection dropdown">
+            <div class="six wide column">
+              <p [style.font-size.em]="0.8">Showing 10 of 15</p>
+            </div>
+            <div class="seven wide right aligned column">
+              <div class="ui compact selection dropdown">
                 <input type="text" name="gender">
                 <i class="dropdown icon"></i>
-                <div class="default text">Sort by name A-Z</div>
+                <div [style.font-size.em]="0.8" class="default text">Sort by name A-Z</div>
                 <div class="menu">
                   <div class="item" data-value="1">Male</div>
                   <div class="item" data-value="0">Female</div>
                 </div>
               </div>
             </div>
-            <div class="right aligned column">
-              <i class="block layout large icon"></i>
-              <i class="list layout large icon"></i>
+            <div class="three wide right aligned column">
+              <i class="block layout large icon button"></i>
+              <i class="list layout large icon button"></i>
             </div>
           </div>
         </sm-segment>
         <div class="ui middle aligned selection list">
           <div *ngFor="let employee of employees" class="item">
             <sm-segment>
-              <img class="ui avatar image" src="{{employee.imgSrc}}"> {{employee.name}}
-              <span class="tiny right floated">
+              <div class="row">
+                <img class="ui avatar image" src="{{employee.imgSrc}}"> {{employee.name}}
+                <span class="right floated">
                   {{employee.position}}
+                  <i *ngIf="employee.warning" class="warning sign icon"></i>
                   <i class="{{employee.skillIcon}} black icon"></i>
                 </span>
+              </div>
+              <div class="ui horizontal list">
+                <div *ngFor="let item of employee.skills" class="item">
+                  <p [style.font-size.em]="0.8">{{item}}</p>
+                </div>
+              </div>
+
             </sm-segment>
           </div>
         </div>

@@ -4,4 +4,6 @@ type Employee = {
    position: string,
    imgSrc: string,
    skillIcon: string,
+   warning: boolean,
+   skills: string,
 }

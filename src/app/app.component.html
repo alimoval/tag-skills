@@ -1,7 +1,7 @@
 <br>
 <div class="ui main container">
 
-  <!--Top row-->
+  <!--Top menu-->
   <div class="ui three column grid">
     <div class="three wide left aligned column">
       <i class="tags large icon button"></i> TagSkills
@@ -21,10 +21,43 @@
   </div>
 
   <!--Main content-->
+
   <div class="ui three column stackable grid">
-    <sm-segment class="three wide column">
-      1
-    </sm-segment>
+
+    <!--First filter-->
+    <div class="four wide column">
+        
+        <div class="ui segment">
+          <div class="ui horizontal selection list">
+            <div class="item">
+              <a>Programming language</a>
+            </div>
+            <div class="item">
+              <a>any</a>
+            </div>
+            <div class="item">
+              <a>all</a>
+            </div>
+          </div>
+          <div class="ui list">
+            <div class="item">
+              <a>Java</a>
+            </div>
+            <div class="item">
+              <a>C#/.Net</a>
+            </div>
+            <div class="item">
+              <a>ObjectiveC</a>
+            </div>
+            <div class="item">
+              <a>PHP</a>
+            </div>
+          </div>
+        </div>
+    </div>
+
+
+
     <div class="nine wide column">
       <div class="row">
         <sm-segment [style.padding.em]="0">
@@ -49,7 +82,7 @@
             </div>
           </div>
         </sm-segment>
-        <div class="ui middle aligned selection list">
+        <div class="ui fluid list">
           <div *ngFor="let employee of employees" class="item">
             <sm-segment>
               <div class="row">
@@ -62,7 +95,7 @@
               </div>
               <div class="ui horizontal list">
                 <div *ngFor="let item of employee.skills" class="item">
-                  <p [style.font-size.em]="0.8">{{item}}</p>
+                  <span [style.font-size.em]="0.8" class="button"><i class="battery {{item.level}} icon"></i>{{item.name}}</span>
                 </div>
               </div>
 

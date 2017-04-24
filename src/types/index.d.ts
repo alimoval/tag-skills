@@ -7,3 +7,8 @@ type Employee = {
    warning: boolean,
    skills: string,
 }
+
+type Language = {
+    name: string,
+    duration: number
+}

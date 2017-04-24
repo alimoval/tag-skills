@@ -26,34 +26,25 @@
 
     <!--First filter-->
     <div class="four wide column">
-        
-        <div class="ui segment">
-          <div class="ui horizontal selection list">
-            <div class="item">
-              <a>Programming language</a>
-            </div>
-            <div class="item">
-              <a>any</a>
-            </div>
-            <div class="item">
-              <a>all</a>
-            </div>
+
+      <div class="ui segment">
+        <div class="ui horizontal selection list">
+          <div class="item">
+            <a>Programming language</a>
           </div>
-          <div class="ui list">
-            <div class="item">
-              <a>Java</a>
-            </div>
-            <div class="item">
-              <a>C#/.Net</a>
-            </div>
-            <div class="item">
-              <a>ObjectiveC</a>
-            </div>
-            <div class="item">
-              <a>PHP</a>
-            </div>
+          <div class="item">
+            <a>any</a>
+          </div>
+          <div class="item">
+            <a>all</a>
           </div>
         </div>
+        <div class="ui list">
+          <div *ngFor="let language of languages" (change)="alert('Hello')" class="item">
+            <sm-checkbox label="{{language.name}}" [control]="checkboxControl">{{language.name}}</sm-checkbox>
+          </div>
+        </div>
+      </div>
     </div>
 
 

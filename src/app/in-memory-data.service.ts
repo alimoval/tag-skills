@@ -3,6 +3,12 @@ import { InMemoryDbService } from 'angular-in-memory-web-api';
 export class InMemoryDataService implements InMemoryDbService {
 
     createDb() {
+
+        const languages = [
+                {name: 'Java'},{name: 'C#/.Net'},{name: 'ObjectiveC'},{name: 'PHP'},{name: 'Javascript'},{name: 'Ruby'},{name: 'Python'}
+
+        ];
+
         const employees = [
             {
                 id: 1, name: 'Nelson Bighetti', position: 'PHP Developer', imgSrc: 'http://www.piedpiper.com/app/themes/pied-piper/dist/images/bighead.png', skillIcon: 'database', warning: true, skills: [
@@ -114,7 +120,7 @@ export class InMemoryDataService implements InMemoryDbService {
                     ] }
         ];
 
-        return { employees };
+        return { employees, languages };
 
     }
 }

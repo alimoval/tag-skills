@@ -9,7 +9,7 @@ import { InMemoryDataService } from './in-memory-data.service';
 
 import { AppComponent } from './app.component';
 import { EmployeeService } from './employee.service';
-
+import {LanguageService} from './language.service';
 
 @NgModule({
   declarations: [
@@ -22,7 +22,7 @@ import { EmployeeService } from './employee.service';
     HttpModule,
     InMemoryWebApiModule.forRoot(InMemoryDataService),
   ],
-  providers: [ EmployeeService ],
+  providers: [ EmployeeService, LanguageService ],
   bootstrap: [ AppComponent ]
 })
 export class AppModule { }

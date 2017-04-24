@@ -10,10 +10,12 @@ import { InMemoryDataService } from './in-memory-data.service';
 import { AppComponent } from './app.component';
 import { EmployeeService } from './employee.service';
 import {LanguageService} from './language.service';
+import { NameFilterPipe } from './name-filter.pipe';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    NameFilterPipe
   ],
   imports: [
     BrowserModule,

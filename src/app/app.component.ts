@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, Input, EventEmitter } from '@angular/core';
 import { EmployeeService } from './employee.service';
 import { LanguageService } from './language.service';
 
@@ -16,6 +16,7 @@ export class AppComponent implements OnInit {
 
   public employees: Employee[];
   public languages: Language[];
+  public inputValue: string = '';
   public errorMessage: any = '';
 
   getEmployees(){

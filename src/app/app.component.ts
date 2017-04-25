@@ -31,6 +31,10 @@ export class AppComponent implements OnInit {
       error => this.errorMessage = <any>error);
   }
 
+  clearSearchTerm(){
+    this.inputValue = '';
+  }
+
   constructor(private _employeeService: EmployeeService, private _languageService: LanguageService) { }
 
   ngOnInit() {

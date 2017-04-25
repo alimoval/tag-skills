@@ -52,17 +52,13 @@ export class InMemoryDataService implements InMemoryDbService {
                     { name: "vim", level: "low" },
                     { name: "Git", level: "high" },
                     ] },
-            { id: 4, name: 'Ivan Ivanov', position: 'PHP Developer', imgSrc: 'http://votre-voyance-en-ligne.net/wp-content/themes/votrevoyanceenligne/img/voyants/jim.jpg', skillIcon: 'database', warning: true, skills: [
-                    { name: "Backend", level: "high" },
+            { id: 4, name: 'Aleksey Alimov', position: 'JS Developer', imgSrc: 'http://www.picshare.ru/uploads/170425/YxI8nEpPGK.jpg', skillIcon: 'tv', warning: true, skills: [
                     { name: "Frontend", level: "medium " },
-                    { name: "PHP", level: "full" },
-                    { name: "Javascript", level: "high" },
-                    { name: "Symfony", level: "medium" },
-                    { name: "Zend", level: "low" },
-                    { name: "MySQL", level: "full" },
-                    { name: "Docker", level: "low" },
-                    { name: "vim", level: "low" },
-                    { name: "Git", level: "high" },
+                    { name: "REST API", level: "low" },
+                    { name: "Javascript", level: "medium" },
+                    { name: "Angular", level: "low" },
+                    { name: "jQuery", level: "low" },
+                    { name: "Git", level: "medium" },
                     ] },
             { id: 5, name: 'Dinesh Chugtai', position: 'iOS Developer', imgSrc: 'http://www.piedpiper.com/app/themes/pied-piper/dist/images/dinesh.png', skillIcon: 'apple', warning: false, skills: [
                     { name: "Backend", level: "low" },

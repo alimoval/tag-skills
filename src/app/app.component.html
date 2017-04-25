@@ -3,19 +3,19 @@
 
   <!--Top menu-->
   <div class="ui three column grid">
-    <div class="three wide left aligned column">
-      <i class="tags large icon button"></i> TagSkills
+    <div class="four wide left aligned column">
+      <i class="tags large link icon"></i> TagSkills
     </div>
     <div class="nine wide column">
       <div class="row">
         <div class="ui icon input fluid">
           <input type="text" placeholder="Search..." (input)="inputValue = $event.target.value" [value]="inputValue">
-          <i class="search link icon"></i>
+          <i class="remove link icon" (click)="clearSearchTerm()"></i>
         </div>
       </div>
     </div>
     <div class="three wide right aligned column">
-      <i class="alarm large icon button"></i>
+      <i class="alarm large icon link button"></i>
       <img class="ui avatar image" src="http://semantic-ui.com/images/avatar/small/stevie.jpg">
     </div>
   </div>
@@ -40,8 +40,9 @@
           </div>
         </div>
         <div class="ui list">
-          <div *ngFor="let language of languages" (change)="alert('Hello')" class="item">
+          <div class="ui checkbox item" *ngFor="let language of languages">
             <input type="checkbox" name="{{language.name}}">
+            <label>{{language.name}}</label>
           </div>
         </div>
       </div>
@@ -58,18 +59,18 @@
             </div>
             <div class="seven wide right aligned column">
               <div class="ui compact selection dropdown">
-                <input type="text" name="gender">
+                <input type="text" name="sort">
                 <i class="dropdown icon"></i>
-                <div [style.font-size.em]="0.8" class="default text">Sort by name A-Z</div>
+                <div [style.font-size.em]="0.8" class="default text">Sort by name</div>
                 <div class="menu">
-                  <div class="item" data-value="1">Male</div>
-                  <div class="item" data-value="0">Female</div>
+                  <div class="item" data-value="1">A-Z</div>
+                  <div class="item" data-value="0">Z-A</div>
                 </div>
               </div>
             </div>
             <div class="three wide right aligned column">
-              <i class="block layout large icon button"></i>
-              <i class="list layout large icon button"></i>
+              <i class="block layout large icon link button"></i>
+              <i class="list layout large icon link button"></i>
             </div>
           </div>
         </sm-segment>

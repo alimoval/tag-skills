@@ -4,10 +4,7 @@ export class InMemoryDataService implements InMemoryDbService {
 
     createDb() {
 
-        const languages = [
-                {name: 'Java'},{name: 'C#/.Net'},{name: 'ObjectiveC'},{name: 'PHP'},{name: 'Javascript'},{name: 'Ruby'},{name: 'Python'}
-
-        ];
+        const languages = ['Java','C#/.Net','ObjectiveC','PHP','Javascript','Ruby','Python'];
 
         const employees = [
             {

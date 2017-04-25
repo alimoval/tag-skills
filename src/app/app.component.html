@@ -28,23 +28,44 @@
     <div class="four wide column">
 
       <div class="ui segment">
+
         <div class="ui horizontal selection list">
+
           <div class="item">
-            <a>Programming language</a>
+            <div class="ui horizontal selection list">
+              <div class="item">
+                <a>Programming language</a>
+              </div>
+              <div class="item">
+                <a>any</a>
+              </div>
+            </div>
+            <div class="ui list" [style.padding-top.px]="0">
+              <div class="ui checkbox item" *ngFor="let language of languages | slice:0:5" [style.padding.em]="0">
+                <input type="checkbox" name="{{language}}">
+                <label>{{language}}</label>
+              </div>
+            </div>
           </div>
+
           <div class="item">
-            <a>any</a>
-          </div>
-          <div class="item">
-            <a>all</a>
+            <div class="ui horizontal selection list">
+              <div class="item">
+                <a>Platforms</a>
+              </div>
+              <div class="item">
+                <a>any</a>
+              </div>
+            </div>
+            <div class="ui list" [style.padding-top.px]="0">
+              <div class="ui checkbox item" *ngFor="let language of languages | slice:0:5" [style.padding.em]="0">
+                <input type="checkbox" name="{{language}}">
+                <label>{{language}}</label>
+              </div>
+            </div>
           </div>
         </div>
-        <div class="ui list">
-          <div class="ui checkbox item" *ngFor="let language of languages">
-            <input type="checkbox" name="{{language.name}}">
-            <label>{{language.name}}</label>
-          </div>
-        </div>
+
       </div>
     </div>
 
@@ -52,7 +73,7 @@
 
     <div class="nine wide column">
       <div class="row">
-        <sm-segment [style.padding.em]="0">
+        <sm-segment>
           <div class="ui three column grid">
             <div class="six wide column">
               <p [style.font-size.em]="0.8">Showing 10 of 15</p>

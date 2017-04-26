@@ -6,6 +6,12 @@ export class InMemoryDataService implements InMemoryDbService {
 
         const languages = ['Java','C#/.Net','ObjectiveC','PHP','Javascript','Ruby','Python'];
 
+        const platforms = ['Android', 'iOS', 'Web servers (backend)', 'Web UI (frontend)', 'Desktop'];
+
+        const dbEnginesRDBMS = ['MySQL', 'MSSQL', 'PostgreSQL', 'SQLite'];
+
+        const dbEnginesNoSQL = ['MongoDB', 'CouchDB', 'Redis', 'Cassandra'];
+
         const employees = [
             {
                 id: 1, name: 'Nelson Bighetti', position: 'PHP Developer', imgSrc: 'http://www.piedpiper.com/app/themes/pied-piper/dist/images/bighead.png', skillIcon: 'database', warning: true, skills: [
@@ -113,7 +119,7 @@ export class InMemoryDataService implements InMemoryDbService {
                     ] }
         ];
 
-        return { employees, languages };
+        return { employees, languages, platforms, dbEnginesRDBMS, dbEnginesNoSQL };
 
     }
 }

@@ -16,6 +16,9 @@ export class AppComponent implements OnInit {
 
   public employees: Employee[];
   public languages: Language[];
+  public platforms: any[];
+  public dbEnginesRDBMS: any[];
+  public dbEnginesNoSQL: any[];
   public inputValue: string = '';
   public errorMessage: any = '';
 
@@ -31,6 +34,24 @@ export class AppComponent implements OnInit {
       error => this.errorMessage = <any>error);
   }
 
+  getPlatforms(){
+    this._languageService.getPlatforms()
+      .subscribe(platforms => this.platforms = platforms, 
+      error => this.errorMessage = <any>error);
+  }
+
+  getDbEnginesRDBMS(){
+    this._languageService.getDbEnginesRDBMS()
+      .subscribe(dbEnginesRDBMS => this.dbEnginesRDBMS = dbEnginesRDBMS, 
+      error => this.errorMessage = <any>error);
+  }
+
+  getDbEnginesNoSQL(){
+    this._languageService.getDbEnginesNoSQL()
+      .subscribe(dbEnginesNoSQL => this.dbEnginesNoSQL = dbEnginesNoSQL, 
+      error => this.errorMessage = <any>error);
+  }
+
   clearSearchTerm(){
     this.inputValue = '';
   }
@@ -40,6 +61,9 @@ export class AppComponent implements OnInit {
   ngOnInit() {
     this.getEmployees();
     this.getLanguages();
+    this.getPlatforms();
+    this.getDbEnginesRDBMS();
+    this.getDbEnginesNoSQL();
   }
 
 

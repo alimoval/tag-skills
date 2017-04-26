@@ -41,11 +41,12 @@
               </div>
             </div>
             <div class="ui list" [style.padding-top.px]="0">
-              <div class="ui checkbox item" *ngFor="let language of languages | slice:0:5" [style.padding.em]="0">
+              <div class="ui checkbox item" *ngFor="let language of languages | slice:0:4" [style.padding.em]="0">
                 <input type="checkbox" name="{{language}}">
                 <label>{{language}}</label>
               </div>
             </div>
+            <a href="">more ...</a>
           </div>
 
           <div class="item">
@@ -58,11 +59,48 @@
               </div>
             </div>
             <div class="ui list" [style.padding-top.px]="0">
-              <div class="ui checkbox item" *ngFor="let language of languages | slice:0:5" [style.padding.em]="0">
-                <input type="checkbox" name="{{language}}">
-                <label>{{language}}</label>
+              <div class="ui checkbox item" *ngFor="let platform of platforms | slice:0:4" [style.padding.em]="0">
+                <input type="checkbox" name="{{platform}}">
+                <label>{{platform}}</label>
               </div>
             </div>
+            <a href="">more ...</a>
+          </div>
+
+          <div class="item">
+            <div class="ui horizontal selection list">
+              <div class="item">
+                <a>DB Engines (RDBMS)</a>
+              </div>
+              <div class="item">
+                <a>any</a>
+              </div>
+            </div>
+            <div class="ui list" [style.padding-top.px]="0">
+              <div class="ui checkbox item" *ngFor="let dbEngineRDBMS of dbEnginesRDBMS | slice:0:4" [style.padding.em]="0">
+                <input type="checkbox" name="{{dbEngineRDBMS}}">
+                <label>{{dbEngineRDBMS}}</label>
+              </div>
+            </div>
+            <a href="">more ...</a>
+          </div>
+
+          <div class="item">
+            <div class="ui horizontal selection list">
+              <div class="item">
+                <a>DB Engines (NoSQL)</a>
+              </div>
+              <div class="item">
+                <a>any</a>
+              </div>
+            </div>
+            <div class="ui list" [style.padding-top.px]="0">
+              <div class="ui checkbox item" *ngFor="let dbEngineNoSQL of dbEnginesNoSQL | slice:0:4" [style.padding.em]="0">
+                <input type="checkbox" name="{{dbEngineNoSQL}}">
+                <label>{{dbEngineNoSQL}}</label>
+              </div>
+            </div>
+            <a *ngIf="(dbEnginesNoSQL.length > 4)" href="">more ...</a>
           </div>
         </div>
 

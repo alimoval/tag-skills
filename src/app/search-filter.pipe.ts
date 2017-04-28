@@ -1,9 +1,9 @@
 import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({
-  name: 'nameFilter'
+  name: 'SearchFilter'
 })
-export class NameFilterPipe implements PipeTransform {
+export class SearchFilterPipe implements PipeTransform {
 
   transform(input: Employee[], searchTerm?: any): Employee[] {
     if (!searchTerm) {
@@ -13,12 +13,12 @@ export class NameFilterPipe implements PipeTransform {
       .filter(employee => {
         return !employee.skills.every(skill => {
           return !`${skill.name.toLowerCase()}`
-            .includes(searchTerm)
+            .includes(searchTerm);
         })
         || `${employee.name.toLowerCase()}`
             .includes(searchTerm)
         || `${employee.position.toLowerCase()}`
-            .includes(searchTerm)
+            .includes(searchTerm);
       }
       );
   }

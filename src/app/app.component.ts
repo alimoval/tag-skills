@@ -20,7 +20,12 @@ export class AppComponent implements OnInit {
   public dbEnginesRDBMS: any[];
   public dbEnginesNoSQL: any[];
   public inputValue: string = '';
+  public sliceLevel: number = 4;
   public errorMessage: any = '';
+
+  changeCheckboxFilterValue(event){
+    (event.target.checked) ? this.inputValue = event.target.value.toLowerCase() : this.inputValue = '';
+  }
 
   getEmployees(){
     this._employeeService.getEmployees()

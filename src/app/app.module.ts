@@ -10,12 +10,14 @@ import { InMemoryDataService } from './in-memory-data.service';
 import { AppComponent } from './app.component';
 import { EmployeeService } from './employee.service';
 import {LanguageService} from './language.service';
-import { NameFilterPipe } from './name-filter.pipe';
+import { SearchFilterPipe } from './search-filter.pipe';
+import { CheckboxFilterPipe } from './checkbox-filter.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
-    NameFilterPipe
+    SearchFilterPipe,
+    CheckboxFilterPipe
   ],
   imports: [
     BrowserModule,

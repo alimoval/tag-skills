@@ -5,7 +5,9 @@ type Employee = {
    imgSrc: string,
    skillIcon: string,
    warning: boolean,
-   skills: string,
+   skills: Array<{
+       name: string
+   }>,
 }
 
 type Language = {

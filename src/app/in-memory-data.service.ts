@@ -4,13 +4,19 @@ export class InMemoryDataService implements InMemoryDbService {
 
     createDb() {
 
-        const languages = ['Java', 'C#/.Net', 'ObjectiveC', 'PHP', 'Javascript', 'Ruby', 'Python'];
+        const languages = ['Java', 'C# /.Net', 'ObjectiveC', 'PHP', 'Javascript', 'Ruby', 'Python'];
 
-        const platforms = ['Android', 'iOS', 'Web servers (backend)', 'Web UI (frontend)', 'Desktop'];
+        const platforms = ['Android', 'iOS', 'Backend', 'Frontend', 'Desktop'];
 
         const dbEnginesRDBMS = ['MySQL', 'MSSQL', 'PostgreSQL', 'SQLite'];
 
         const dbEnginesNoSQL = ['MongoDB', 'CouchDB', 'Redis', 'Cassandra'];
+
+        const offices = ['Mykolaiv', 'Lviv', 'Kyiv', 'Clark'];
+
+        const availabilities = ['GFL Expense', 'Looking for new experience'];
+
+        const typesOfProject = ['Backend', 'Frontend', 'Mobile application'];
 
         const employees = [
             {
@@ -119,7 +125,7 @@ export class InMemoryDataService implements InMemoryDbService {
                     ] }
         ];
 
-        return { employees, languages, platforms, dbEnginesRDBMS, dbEnginesNoSQL };
+        return { employees, languages, platforms, dbEnginesRDBMS, dbEnginesNoSQL, offices, availabilities, typesOfProject };
 
     }
 }

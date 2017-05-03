@@ -3,10 +3,10 @@
 
   <!--Top menu-->
   <div class="ui three column grid">
-    <div class="four wide left aligned column">
+    <div class="three wide left aligned column">
       <i class="tags large link icon"></i> TagSkills
     </div>
-    <div class="nine wide column">
+    <div class="ten wide column">
       <div class="row">
         <div class="ui icon input fluid">
           <input type="text" placeholder="Search..." (input)="inputValue = $event.target.value" [value]="inputValue">
@@ -16,7 +16,7 @@
     </div>
     <div class="three wide right aligned column">
       <i class="alarm large icon link button"></i>
-      <img class="ui avatar image" src="http://semantic-ui.com/images/avatar/small/stevie.jpg">
+      <img class="ui avatar image" src="http://semantic-ui.com/images/avatar/small/elliot.jpg">
     </div>
   </div>
 
@@ -25,7 +25,7 @@
   <div class="ui three column stackable grid">
 
     <!--First filter-->
-    <div class="four wide column">
+    <div class="three wide column">
 
       <div class="ui segment">
 
@@ -36,7 +36,7 @@
               <div class="item">
                 <a>Programming language</a>
               </div>
-              <div class="item">
+              <div class="item" [style.padding.px]="0">
                 <a>any</a>
               </div>
             </div>
@@ -54,13 +54,13 @@
               <div class="item">
                 <a>Platforms</a>
               </div>
-              <div class="item">
+              <div class="item" [style.padding.px]="0">
                 <a>any</a>
               </div>
             </div>
             <div class="ui list" [style.padding-top.px]="0">
               <div class="ui checkbox item" *ngFor="let platform of platforms | slice:0:sliceLevel" [style.padding.em]="0">
-                <input type="checkbox" name="{{platform}}" value="{{platform}}" (click)="changeCheckboxFilterValue($event)">
+                <input type="checkbox" name="{{platform}}" value="{{platform}}" (click)="changeCheckboxFilterValue($event)" [checked]="">
                 <label>{{platform}}</label>
               </div>
             </div>
@@ -72,7 +72,7 @@
               <div class="item">
                 <a>DB Engines (RDBMS)</a>
               </div>
-              <div class="item">
+              <div class="item" [style.padding.px]="0">
                 <a>any</a>
               </div>
             </div>
@@ -90,7 +90,7 @@
               <div class="item">
                 <a>DB Engines (NoSQL)</a>
               </div>
-              <div class="item">
+              <div class="item" [style.padding.px]="0">
                 <a>any</a>
               </div>
             </div>
@@ -109,9 +109,9 @@
 
 
 
-    <div class="nine wide column">
+    <div class="ten wide column">
       <div class="row">
-        <sm-segment>
+        <!--<sm-segment>
           <div class="ui three column grid">
             <div class="six wide column">
               <p [style.font-size.em]="0.8">Showing 10 of 15</p>
@@ -132,7 +132,7 @@
               <i class="list layout large icon link button"></i>
             </div>
           </div>
-        </sm-segment>
+        </sm-segment>-->
         <div class="ui fluid list">
           <div *ngFor="let employee of employees | SearchFilter:inputValue" class="item">
             <sm-segment>
@@ -156,7 +156,66 @@
       </div>
     </div>
     <div class="three wide column">
-      <sm-segment>3</sm-segment>
+      <div class="ui segment">
+
+        <div class="ui horizontal selection list">
+
+          <div class="item">
+            <div class="ui horizontal selection list">
+              <div class="item">
+                <a>Type of project</a>
+              </div>
+              <div class="item" [style.padding.px]="0">
+                <a>any</a>
+              </div>
+            </div>
+            <div class="ui list" [style.padding-top.px]="0">
+              <div class="ui checkbox item" *ngFor="let typeOfProject of typesOfProject | slice:0:sliceLevel" [style.padding.em]="0">
+                <input type="checkbox" name="{{typeOfProject}}" value="{{typeOfProject}}" (click)="changeCheckboxFilterValue($event)">
+                <label>{{typeOfProject}}</label>
+              </div>
+            </div>
+            <a (click)="sliceLevel = languages.length">more ...</a>
+          </div>
+
+          <div class="item">
+            <div class="ui horizontal selection list">
+              <div class="item">
+                <a>Availability</a>
+              </div>
+              <div class="item" [style.padding.px]="0">
+                <a>any</a>
+              </div>
+            </div>
+            <div class="ui list" [style.padding-top.px]="0">
+              <div class="ui checkbox item" *ngFor="let availability of availabilities | slice:0:sliceLevel" [style.padding.em]="0">
+                <input type="checkbox" name="{{availability}}" value="{{availability}}" (click)="changeCheckboxFilterValue($event)">
+                <label>{{availability}}</label>
+              </div>
+            </div>
+            <a (click)="sliceLevel = languages.length">more ...</a>
+          </div>
+
+          <div class="item">
+            <div class="ui horizontal selection list">
+              <div class="item">
+                <a>Office</a>
+              </div>
+              <div class="item" [style.padding.px]="0">
+                <a>any</a>
+              </div>
+            </div>
+            <div class="ui list" [style.padding-top.px]="0">
+              <div class="ui checkbox item" *ngFor="let office of offices | slice:0:sliceLevel" [style.padding.em]="0">
+                <input type="checkbox" name="{{office}}" value="{{office}}" (click)="changeCheckboxFilterValue($event)">
+                <label>{{office}}</label>
+              </div>
+            </div>
+            <a (click)="sliceLevel = languages.length">more ...</a>
+          </div>
+
+        </div>
+      </div>
     </div>
   </div>
 </div>

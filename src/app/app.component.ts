@@ -2,6 +2,7 @@ import { Component, OnInit, Output, Input, EventEmitter } from '@angular/core';
 import { EmployeeService } from './employee.service';
 import { LanguageService } from './language.service';
 
+import { Observable } from 'rxjs/Observable';
 
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
@@ -19,17 +20,27 @@ export class AppComponent implements OnInit {
   public platforms: any[];
   public dbEnginesRDBMS: any[];
   public dbEnginesNoSQL: any[];
+  public typesOfProject: any[];
+  public availabilities: any[];
+  public offices: any[];
   public inputValue: string = '';
   public sliceLevel: number = 4;
   public errorMessage: any = '';
 
-  changeCheckboxFilterValue(event){
-    (event.target.checked) ? this.inputValue = event.target.value.toLowerCase() : this.inputValue = '';
+  changeCheckboxFilterValue(event): Observable<string[]> {
+     this.inputValue = (event.target.checked) ? event.target.value.toLowerCase() : '';
+    return event.target.siblings.map(node => node.checked = false);
   }
 
   getEmployees(){
     this._employeeService.getEmployees()
       .subscribe(employees => this.employees = employees,
+      error => this.errorMessage = <any>error);
+  }
+
+  getOffices(){
+    this._languageService.getOffices()
+    .subscribe(offices => this.offices = offices,
       error => this.errorMessage = <any>error);
   }
 
@@ -41,20 +52,31 @@ export class AppComponent implements OnInit {
 
   getPlatforms(){
     this._languageService.getPlatforms()
-      .subscribe(platforms => this.platforms = platforms, 
+      .subscribe(platforms => this.platforms = platforms,
       error => this.errorMessage = <any>error);
   }
 
   getDbEnginesRDBMS(){
     this._languageService.getDbEnginesRDBMS()
-      .subscribe(dbEnginesRDBMS => this.dbEnginesRDBMS = dbEnginesRDBMS, 
+      .subscribe(dbEnginesRDBMS => this.dbEnginesRDBMS = dbEnginesRDBMS,
       error => this.errorMessage = <any>error);
   }
 
   getDbEnginesNoSQL(){
     this._languageService.getDbEnginesNoSQL()
-      .subscribe(dbEnginesNoSQL => this.dbEnginesNoSQL = dbEnginesNoSQL, 
+      .subscribe(dbEnginesNoSQL => this.dbEnginesNoSQL = dbEnginesNoSQL,
       error => this.errorMessage = <any>error);
+  }
+
+  getAvailabilities(){
+    this._languageService.getAvailabilities()
+    .subscribe(availabilities => this.availabilities = availabilities,
+      error => this.errorMessage = <any>error);
+  }
+
+  getTypesOfProject(){
+    this._languageService.getTypesOfProject()
+    .subscribe(typesOfProject => this.typesOfProject = typesOfProject);
   }
 
   clearSearchTerm(){
@@ -69,6 +91,9 @@ export class AppComponent implements OnInit {
     this.getPlatforms();
     this.getDbEnginesRDBMS();
     this.getDbEnginesNoSQL();
+    this.getOffices();
+    this.getAvailabilities();
+    this.getTypesOfProject();
   }
 
 

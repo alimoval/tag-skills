@@ -24,7 +24,9 @@
 
   <div class="ui three column stackable grid">
 
-    <!--First filter-->
+
+    <!--Checkboxes as filters-->
+
     <div class="three wide column">
 
       <div class="ui segment">
@@ -32,10 +34,8 @@
         <div class="ui horizontal selection list">
 
           <div class="item">
+            <div class="header">Language</div>
             <div class="ui horizontal selection list">
-              <div class="item">
-                <a>Programming language</a>
-              </div>
               <div class="item" [style.padding.px]="0">
                 <a>any</a>
               </div>
@@ -50,10 +50,8 @@
           </div>
 
           <div class="item">
+            <div class="header">Platform</div>
             <div class="ui horizontal selection list">
-              <div class="item">
-                <a>Platforms</a>
-              </div>
               <div class="item" [style.padding.px]="0">
                 <a>any</a>
               </div>
@@ -68,10 +66,8 @@
           </div>
 
           <div class="item">
+            <div class="header">Db Engine RDBMS</div>
             <div class="ui horizontal selection list">
-              <div class="item">
-                <a>DB Engines (RDBMS)</a>
-              </div>
               <div class="item" [style.padding.px]="0">
                 <a>any</a>
               </div>
@@ -86,10 +82,8 @@
           </div>
 
           <div class="item">
+            <div class="header">Db Engine NoSQL</div>
             <div class="ui horizontal selection list">
-              <div class="item">
-                <a>DB Engines (NoSQL)</a>
-              </div>
               <div class="item" [style.padding.px]="0">
                 <a>any</a>
               </div>
@@ -111,7 +105,7 @@
 
     <div class="ten wide column">
       <div class="row">
-        <!--<sm-segment>
+        <!--<div class="ui segment">
           <div class="ui three column grid">
             <div class="six wide column">
               <p [style.font-size.em]="0.8">Showing 10 of 15</p>
@@ -121,9 +115,9 @@
                 <input type="text" name="sort">
                 <i class="dropdown icon"></i>
                 <div [style.font-size.em]="0.8" class="default text">Sort by name</div>
-                <div class="menu">
-                  <div class="item" data-value="1">A-Z</div>
-                  <div class="item" data-value="0">Z-A</div>
+                <div class="ui menu">
+                  <div class="item" data-value="forward">A-Z</div>
+                  <div class="item" data-value="backward">Z-A</div>
                 </div>
               </div>
             </div>
@@ -132,10 +126,10 @@
               <i class="list layout large icon link button"></i>
             </div>
           </div>
-        </sm-segment>-->
+        </div>-->
         <div class="ui fluid list">
           <div *ngFor="let employee of employees | SearchFilter:inputValue" class="item">
-            <sm-segment>
+            <div class="ui segment">
               <div class="row">
                 <img class="ui avatar image" src="{{employee.imgSrc}}"> {{employee.name}}
                 <span class="right floated">
@@ -150,7 +144,7 @@
                 </div>
               </div>
 
-            </sm-segment>
+            </div>
           </div>
         </div>
       </div>
@@ -161,10 +155,8 @@
         <div class="ui horizontal selection list">
 
           <div class="item">
+            <div class="header">Type of Project</div>
             <div class="ui horizontal selection list">
-              <div class="item">
-                <a>Type of project</a>
-              </div>
               <div class="item" [style.padding.px]="0">
                 <a>any</a>
               </div>
@@ -179,10 +171,8 @@
           </div>
 
           <div class="item">
+            <div class="header">Availability</div>
             <div class="ui horizontal selection list">
-              <div class="item">
-                <a>Availability</a>
-              </div>
               <div class="item" [style.padding.px]="0">
                 <a>any</a>
               </div>
@@ -197,11 +187,9 @@
           </div>
 
           <div class="item">
+            <div class="header">Office</div>
             <div class="ui horizontal selection list">
               <div class="item">
-                <a>Office</a>
-              </div>
-              <div class="item" [style.padding.px]="0">
                 <a>any</a>
               </div>
             </div>
@@ -214,6 +202,15 @@
             <a (click)="sliceLevel = languages.length">more ...</a>
           </div>
 
+        </div>
+      </div>
+
+      <div *ngIf="tags.length >= 1" class="ui segment">
+        <div class="header">Recent searches</div>
+        <div class="ui horizontal list" [style.padding-top.px]="0">
+          <div class="item" *ngFor="let tag of tags">
+            <a>{{tag}},</a>
+          </div>
         </div>
       </div>
     </div>

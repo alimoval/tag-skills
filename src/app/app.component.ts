@@ -24,12 +24,14 @@ export class AppComponent implements OnInit {
   public availabilities: any[];
   public offices: any[];
   public inputValue: string = '';
+  public prevCheckbox: any;
   public sliceLevel: number = 4;
   public errorMessage: any = '';
 
   changeCheckboxFilterValue(event): Observable<string[]> {
-     this.inputValue = (event.target.checked) ? event.target.value.toLowerCase() : '';
-    return event.target.siblings.map(node => node.checked = false);
+    if (this.prevCheckbox) this.prevCheckbox.checked = false;
+    this.prevCheckbox = event.target;
+     return this.inputValue = (event.target.checked) ? event.target.value.toLowerCase() : '';
   }
 
   getEmployees(){

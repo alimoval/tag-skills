@@ -17,6 +17,8 @@ export class SearchFilterPipe implements PipeTransform {
         })
         || `${employee.name.toLowerCase()}`
             .includes(searchTerm)
+            || `${employee.office.toLowerCase()}`
+            .includes(searchTerm)
         || `${employee.position.toLowerCase()}`
             .includes(searchTerm);
       }

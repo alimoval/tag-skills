@@ -2,6 +2,8 @@ type Employee = {
    id: number,
    name: string,
    position: string,
+   typeOfProject: string,
+   availability: string,
    office: string,
    imgSrc: string,
    skillIcon: string,

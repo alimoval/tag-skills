@@ -15,11 +15,13 @@ export class SearchFilterPipe implements PipeTransform {
           return !`${skill.name.toLowerCase()}`
             .includes(searchTerm);
         })
-        || `${employee.name.toLowerCase()}`
+          || `${employee.name.toLowerCase()}`
             .includes(searchTerm)
-            || `${employee.office.toLowerCase()}`
+          || `${employee.availability.toLowerCase()}`
             .includes(searchTerm)
-        || `${employee.position.toLowerCase()}`
+          || `${employee.office.toLowerCase()}`
+            .includes(searchTerm)
+          || `${employee.position.toLowerCase()}`
             .includes(searchTerm);
       }
       );

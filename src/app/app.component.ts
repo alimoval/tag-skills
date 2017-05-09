@@ -85,6 +85,7 @@ export class AppComponent implements OnInit {
 
   clearSearchTerm(){
     this.inputValue = '';
+    if (this.prevCheckbox) this.prevCheckbox.checked = false;
   }
 
   constructor(private _employeeService: EmployeeService, private _languageService: LanguageService) { }

@@ -24,6 +24,7 @@ export class AppComponent implements OnInit {
   public availabilities: any[];
   public offices: any[];
   public inputValue: string = '';
+  public sortValue: string = '';
   public prevCheckbox: any;
   public tags: any[] = [];
   public sliceLevel: number = 4;
@@ -34,6 +35,10 @@ export class AppComponent implements OnInit {
     this.prevCheckbox = event.target;
     this.tags.push(event.target.value);
      return this.inputValue = (event.target.checked) ? event.target.value.toLowerCase() : '';
+  }
+
+  changeSortValue(direction){
+    this.sortValue = direction;
   }
 
   getEmployees(){

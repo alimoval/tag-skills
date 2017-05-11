@@ -11,13 +11,13 @@ import { AppComponent } from './app.component';
 import { EmployeeService } from './employee.service';
 import {LanguageService} from './language.service';
 import { SearchFilterPipe } from './search-filter.pipe';
-import { CheckboxFilterPipe } from './checkbox-filter.pipe';
+import { SortPipe } from './sort.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     SearchFilterPipe,
-    CheckboxFilterPipe
+    SortPipe,
   ],
   imports: [
     BrowserModule,

@@ -111,15 +111,10 @@
               <p [style.font-size.em]="0.8">Showing 10 of 15</p>
             </div>
             <div class="seven wide right aligned column">
-              <div class="ui compact selection dropdown">
-                <input type="text" name="sort">
-                <i class="dropdown icon"></i>
-                <div [style.font-size.em]="0.8" class="default text">Sort by name</div>
-                <div class="ui menu">
-                  <div class="item" data-value="forward">A-Z</div>
-                  <div class="item" data-value="backward">Z-A</div>
-                </div>
-              </div>
+              <sm-dropdown class="compact selection" title="Sort by name">
+                <div class="item" data-value="forward" (click)="changeSortValue('forward')">A-Z</div>
+                <div class="item" data-value="backward" (click)="changeSortValue('backward')">Z-A</div>
+              </sm-dropdown>
             </div>
             <div class="three wide right aligned column">
               <i class="block layout large icon link button"></i>
@@ -128,7 +123,7 @@
           </div>
         </div>
         <div class="ui fluid list">
-          <div *ngFor="let employee of employees | SearchFilter:inputValue" class="item">
+          <div *ngFor="let employee of employees | SearchFilter:inputValue | sort:sortValue" class="item">
             <div class="ui segment">
               <div class="row">
                 <img class="ui avatar image" src="{{employee.imgSrc}}"> {{employee.name}}

@@ -1,6 +1,6 @@
 import { Component, OnInit, Output, Input, EventEmitter } from '@angular/core';
 import { EmployeeService } from './employee.service';
-import { LanguageService } from './language.service';
+import { FilterService } from './filter.service';
 
 import { Observable } from 'rxjs/Observable';
 
@@ -23,15 +23,17 @@ export class AppComponent implements OnInit {
   public typesOfProject: any[];
   public availabilities: any[];
   public offices: any[];
-  public inputValue: string = '';
-  public sortValue: string = '';
+  public inputValue = '';
+  public sortValue = '';
   public prevCheckbox: any;
   public tags: any[] = [];
-  public sliceLevel: number = 4;
+  public sliceLevel = 4;
   public errorMessage: any = '';
 
   changeCheckboxFilterValue(event): Observable<string[]> {
-    if (this.prevCheckbox) this.prevCheckbox.checked = false;
+    if (this.prevCheckbox) {
+      this.prevCheckbox.checked = false;
+    }
     this.prevCheckbox = event.target;
     this.tags.push(event.target.value);
      return this.inputValue = (event.target.checked) ? event.target.value.toLowerCase() : '';
@@ -48,52 +50,54 @@ export class AppComponent implements OnInit {
   }
 
   getOffices(){
-    this._languageService.getOffices()
+    this._filterService.getOffices()
     .subscribe(offices => this.offices = offices,
       error => this.errorMessage = <any>error);
   }
 
   getLanguages(){
-     this._languageService.getLanguages()
+     this._filterService.getLanguages()
       .subscribe(languages => this.languages = languages,
       error => this.errorMessage = <any>error);
   }
 
   getPlatforms(){
-    this._languageService.getPlatforms()
+    this._filterService.getPlatforms()
       .subscribe(platforms => this.platforms = platforms,
       error => this.errorMessage = <any>error);
   }
 
   getDbEnginesRDBMS(){
-    this._languageService.getDbEnginesRDBMS()
+    this._filterService.getDbEnginesRDBMS()
       .subscribe(dbEnginesRDBMS => this.dbEnginesRDBMS = dbEnginesRDBMS,
       error => this.errorMessage = <any>error);
   }
 
   getDbEnginesNoSQL(){
-    this._languageService.getDbEnginesNoSQL()
+    this._filterService.getDbEnginesNoSQL()
       .subscribe(dbEnginesNoSQL => this.dbEnginesNoSQL = dbEnginesNoSQL,
       error => this.errorMessage = <any>error);
   }
 
   getAvailabilities(){
-    this._languageService.getAvailabilities()
+    this._filterService.getAvailabilities()
     .subscribe(availabilities => this.availabilities = availabilities,
       error => this.errorMessage = <any>error);
   }
 
   getTypesOfProject(){
-    this._languageService.getTypesOfProject()
+    this._filterService.getTypesOfProject()
     .subscribe(typesOfProject => this.typesOfProject = typesOfProject);
   }
 
   clearSearchTerm(){
     this.inputValue = '';
-    if (this.prevCheckbox) this.prevCheckbox.checked = false;
+    if (this.prevCheckbox) {
+      this.prevCheckbox.checked = false;
+    }
   }
 
-  constructor(private _employeeService: EmployeeService, private _languageService: LanguageService) { }
+  constructor(private _employeeService: EmployeeService, private _filterService: FilterService) { }
 
   ngOnInit() {
     this.getEmployees();

@@ -3,7 +3,7 @@ import { Headers, Http, Response } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 
 @Injectable()
-export class LanguageService {
+export class FilterService {
 
   private _languagesUrl = 'api/languages';
   private _platformsUrl = 'api/platforms';
@@ -58,7 +58,7 @@ export class LanguageService {
   }
 
   private _handleError(error: any) {
-    let errMsg = (error.message) ? error.message :
+    const errMsg = (error.message) ? error.message :
       error.status ? `${error.status} - ${error.statusText}` : 'Server error';
     console.error(errMsg); // log to console instead
     return Observable.throw(errMsg);

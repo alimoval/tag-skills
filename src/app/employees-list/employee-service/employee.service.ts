@@ -10,6 +10,8 @@ export class EmployeeService {
 
   constructor(private _http: Http) { }
 
+  // Http employees request gererated here
+
   getEmployees(): Observable<Employee[]> {
     return this._http.get(this._employeesUrl)
       .map(response => response.json().data as Employee[])

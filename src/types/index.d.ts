@@ -11,9 +11,9 @@ type Employee = {
    skills: Array<{
        name: string
    }>,
-}
+};
 
-type Language = {
+type Filter = {
     name: string,
     duration: number
-}
+};

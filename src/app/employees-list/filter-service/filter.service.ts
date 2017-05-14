@@ -12,48 +12,55 @@ export class FilterService {
   private _offices = 'api/offices';
   private _availabilities = 'api/availabilities';
   private _typesOfProject = 'api/typesOfProject';
+  private _filtersUrl = 'api/filters';
 
   constructor(private _http: Http) { }
 
-  getLanguages(): Observable<Language[]> {
+  getFilterData(): Observable<any[]> {
+    return this._http.get(this._filtersUrl)
+      .map(response => response.json().data as any[])
+      .catch(this._handleError);
+  }
+
+  getLanguages(): Observable<Filter[]> {
     return this._http.get(this._languagesUrl)
-      .map(response => response.json().data as Language[])
+      .map(response => response.json().data as Filter[])
       .catch(this._handleError);
   }
 
-  getPlatforms(): Observable<any[]> {
+  getPlatforms(): Observable<Filter[]> {
     return this._http.get(this._platformsUrl)
-      .map(responce => responce.json().data as any[])
+      .map(responce => responce.json().data as Filter[])
       .catch(this._handleError);
   }
 
-  getDbEnginesRDBMS(): Observable<any[]> {
+  getDbEnginesRDBMS(): Observable<Filter[]> {
     return this._http.get(this._dbEnginesRDBMS)
-      .map(responce => responce.json().data as any[])
+      .map(responce => responce.json().data as Filter[])
       .catch(this._handleError);
   }
 
-  getDbEnginesNoSQL(): Observable<any[]> {
+  getDbEnginesNoSQL(): Observable<Filter[]> {
     return this._http.get(this._dbEnginesNoSQL)
-      .map(responce => responce.json().data as any[])
+      .map(responce => responce.json().data as Filter[])
       .catch(this._handleError);
   }
 
-  getOffices(): Observable<any[]> {
+  getOffices(): Observable<Filter[]> {
     return this._http.get(this._offices)
-      .map(responce => responce.json().data as any[])
+      .map(responce => responce.json().data as Filter[])
       .catch(this._handleError);
   }
 
-  getAvailabilities(): Observable<any[]> {
+  getAvailabilities(): Observable<Filter[]> {
     return this._http.get(this._availabilities)
-      .map(responce => responce.json().data as any[])
+      .map(responce => responce.json().data as Filter[])
       .catch(this._handleError);
   }
 
-  getTypesOfProject(): Observable<any[]> {
+  getTypesOfProject(): Observable<Filter[]> {
     return this._http.get(this._typesOfProject)
-      .map(responce => responce.json().data as any[])
+      .map(responce => responce.json().data as Filter[])
       .catch(this._handleError);
   }
 

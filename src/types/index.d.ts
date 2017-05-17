@@ -14,6 +14,5 @@ type Employee = {
 };
 
 type Filter = {
-    name: string,
-    duration: number
+    languages: string,
 };

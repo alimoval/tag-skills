@@ -48,20 +48,23 @@ export class EmployeesListComponent implements OnInit {
 
   getEmployees() {
     this._employeeService.getEmployees()
-      .subscribe(employees => this.employees = employees,
+      .subscribe(employees => { this.employees = employees; },
       error => this.errorMessage = <any>error);
   };
 
-  // getFilterData() {
-  //   this._filterService.getFilterData()
-  //     .subscribe(filters => {
-  //       filters.every(item => {
-  //         return `${item}`;
-  //       });
-  //     });
+  // getEmployees() {
+  //   this._employeeService.getEmployees()
+  //     .subscribe(employees => this.employees = employees,
+  //     error => this.errorMessage = <any>error);
   // };
 
-
+  // getFiltersData() {
+  //   return this._filterService.getFilterData()
+  //     .subscribe((filters) => {
+  //       this.filters = filters;
+  //       this.languages = this.filters.languages;
+  //     });
+  // };
 
   getOffices() {
     this._filterService.getOffices()
@@ -109,7 +112,7 @@ export class EmployeesListComponent implements OnInit {
 
   ngOnInit() {
     this.getEmployees();
-    // this.getFilterData();
+    // this.getFiltersData();
     this.getPlatforms();
     this.getDbEnginesRDBMS();
     this.getDbEnginesNoSQL();

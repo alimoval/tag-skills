@@ -20,15 +20,15 @@ export class InMemoryDataService implements InMemoryDbService {
 
                 const typesOfProject = ['Backend', 'Frontend', 'Mobile application'];
 
-                const filters = [
-                        { languages: ['C# / .Net', 'ObjectiveC', 'PHP', 'Javascript', 'Java', 'Ruby', 'Python'] },
-                        { platforms: ['Android', 'iOS', 'Backend', 'Frontend', 'Desktop'] },
-                        { dbEnginesRDBMS: ['MySQL', 'MSSQL', 'PostgreSQL', 'SQLite'] },
-                        { dbEnginesNoSQL: ['MongoDB', 'CouchDB', 'Redis', 'Cassandra'] },
-                        { offices: ['Mykolaiv', 'Lviv', 'Kyiv', 'Clark'] },
-                        { availabilities: ['GFL Expense', 'Looking for new experience'] },
-                        { typesOfProject: ['Backend', 'Frontend', 'Mobile application'] }
-                ];
+                const filters = {
+                        languages: ['C# / .Net', 'ObjectiveC', 'PHP', 'Javascript', 'Java', 'Ruby', 'Python'],
+                        platforms: ['Android', 'iOS', 'Backend', 'Frontend', 'Desktop'],
+                        dbEnginesRDBMS: ['MySQL', 'MSSQL', 'PostgreSQL', 'SQLite'],
+                        dbEnginesNoSQL: ['MongoDB', 'CouchDB', 'Redis', 'Cassandra'],
+                        offices: ['Mykolaiv', 'Lviv', 'Kyiv', 'Clark'],
+                        availabilities: ['GFL Expense', 'Looking for new experience'],
+                        typesOfProject: ['Backend', 'Frontend', 'Mobile application']
+                };
 
                 const employees = [
                         {

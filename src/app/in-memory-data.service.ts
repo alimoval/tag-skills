@@ -6,31 +6,18 @@ export class InMemoryDataService implements InMemoryDbService {
 
         createDb() {
 
-                const languages = ['C# / .Net', 'ObjectiveC', 'PHP', 'Javascript', 'Java', 'Ruby', 'Python'];
-
-                const platforms = ['Android', 'iOS', 'Backend', 'Frontend', 'Desktop'];
-
-                const dbEnginesRDBMS = ['MySQL', 'MSSQL', 'PostgreSQL', 'SQLite'];
-
-                const dbEnginesNoSQL = ['MongoDB', 'CouchDB', 'Redis', 'Cassandra'];
-
-                const offices = ['Mykolaiv', 'Lviv', 'Kyiv', 'Clark'];
-
-                const availabilities = ['GFL Expense', 'Looking for new experience'];
-
-                const typesOfProject = ['Backend', 'Frontend', 'Mobile application'];
-
-                const filters = [
-                        { languages: ['C# / .Net', 'ObjectiveC', 'PHP', 'Javascript', 'Java', 'Ruby', 'Python'] },
-                        { platforms: ['Android', 'iOS', 'Backend', 'Frontend', 'Desktop'] },
-                        { dbEnginesRDBMS: ['MySQL', 'MSSQL', 'PostgreSQL', 'SQLite'] },
-                        { dbEnginesNoSQL: ['MongoDB', 'CouchDB', 'Redis', 'Cassandra'] },
-                        { offices: ['Mykolaiv', 'Lviv', 'Kyiv', 'Clark'] },
-                        { availabilities: ['GFL Expense', 'Looking for new experience'] },
-                        { typesOfProject: ['Backend', 'Frontend', 'Mobile application'] }
-                ];
-
                 const employees = [
+                        {
+                                filters: [
+                                        { name: 'languages', data: ['C# / .Net', 'ObjectiveC', 'PHP', 'Javascript', 'Java', 'Ruby', 'Python'] },
+                                        { name: 'platforms', data: ['Android', 'iOS', 'Backend', 'Frontend', 'Desktop'] },
+                                        { name: 'dbEnginesRDBMS', data: ['MySQL', 'MSSQL', 'PostgreSQL', 'SQLite'] },
+                                        { name: 'dbEnginesNoSQL', data: ['MongoDB', 'CouchDB', 'Redis', 'Cassandra'] },
+                                        { name: 'offices', data: ['Mykolaiv', 'Lviv', 'Kyiv', 'Clark'] },
+                                        { name: 'availabilities', data: ['GFL Expense', 'Looking for new experience'] },
+                                        { name: 'typesOfProject', data: ['Backend', 'Frontend', 'Mobile application'] }
+                                ]
+                        },
                         {
                                 id: 1,
                                 name: 'Nelson Bighetti',
@@ -235,17 +222,7 @@ export class InMemoryDataService implements InMemoryDbService {
                         }
                 ];
 
-                return {
-                        employees,
-                        languages,
-                        platforms,
-                        dbEnginesRDBMS,
-                        dbEnginesNoSQL,
-                        offices,
-                        availabilities,
-                        typesOfProject,
-                        filters
-                };
+                return { employees };
 
         }
 }

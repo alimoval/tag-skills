@@ -1,6 +1,5 @@
 import { Component, OnInit, Output, Input, EventEmitter } from '@angular/core';
 import { EmployeeService } from './employee-service/employee.service';
-import { FilterService } from './filter-service/filter.service';
 
 import { Observable } from 'rxjs/Observable';
 
@@ -68,7 +67,7 @@ export class EmployeesListComponent implements OnInit {
     }
   }
 
-  constructor(private _employeeService: EmployeeService, private _filterService: FilterService) { }
+  constructor(private _employeeService: EmployeeService) { }
 
   ngOnInit() {
     this.getData();

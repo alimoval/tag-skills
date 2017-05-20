@@ -70,7 +70,6 @@ export class EmployeesListComponent implements OnInit {
   constructor(private _employeeService: EmployeeService) { }
 
   ngOnInit() {
-
     this.getData();
   }
 

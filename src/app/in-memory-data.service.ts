@@ -6,33 +6,6 @@ export class InMemoryDataService implements InMemoryDbService {
 
         createDb() {
 
-<<<<<<< HEAD
-                const languages = ['C# / .Net', 'ObjectiveC', 'PHP', 'Javascript', 'Java', 'Ruby', 'Python'];
-
-                const platforms = ['Android', 'iOS', 'Backend', 'Frontend', 'Desktop'];
-
-                const dbEnginesRDBMS = ['MySQL', 'MSSQL', 'PostgreSQL', 'SQLite'];
-
-                const dbEnginesNoSQL = ['MongoDB', 'CouchDB', 'Redis', 'Cassandra'];
-
-                const offices = ['Mykolaiv', 'Lviv', 'Kyiv', 'Clark'];
-
-                const availabilities = ['GFL Expense', 'Looking for new experience'];
-
-                const typesOfProject = ['Backend', 'Frontend', 'Mobile application'];
-
-                const filters = {
-                        languages: ['C# / .Net', 'ObjectiveC', 'PHP', 'Javascript', 'Java', 'Ruby', 'Python'],
-                        platforms: ['Android', 'iOS', 'Backend', 'Frontend', 'Desktop'],
-                        dbEnginesRDBMS: ['MySQL', 'MSSQL', 'PostgreSQL', 'SQLite'],
-                        dbEnginesNoSQL: ['MongoDB', 'CouchDB', 'Redis', 'Cassandra'],
-                        offices: ['Mykolaiv', 'Lviv', 'Kyiv', 'Clark'],
-                        availabilities: ['GFL Expense', 'Looking for new experience'],
-                        typesOfProject: ['Backend', 'Frontend', 'Mobile application']
-                };
-
-=======
->>>>>>> 97ffe12f9d8a6568e3c15442804f0d8aca93104e
                 const employees = [
                         {
                                 filters: [

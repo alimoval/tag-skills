@@ -1,6 +1,5 @@
 import { Component, OnInit, Output, Input, EventEmitter } from '@angular/core';
 import { EmployeeService } from './employee-service/employee.service';
-import { FilterService } from './filter-service/filter.service';
 
 import { Observable } from 'rxjs/Observable';
 
@@ -16,7 +15,7 @@ export class EmployeesListComponent implements OnInit {
 
   title = 'Tag Skills';
 
-  public employees: Employee[];
+  public employees: any[];
   public languages: any[];
   public platforms: any[];
   public dbEnginesRDBMS: any[];
@@ -46,60 +45,20 @@ export class EmployeesListComponent implements OnInit {
     this.sortValue = direction;
   };
 
-  getEmployees() {
+  getData() {
     this._employeeService.getEmployees()
-      .subscribe(employees => { this.employees = employees; },
-      error => this.errorMessage = <any>error);
+      .subscribe(employees => {
+        this.employees = employees;
+        this.languages = this.employees[0].filters[0].data;
+        this.platforms = this.employees[0].filters[1].data;
+        this.dbEnginesRDBMS = this.employees[0].filters[2].data;
+        this.dbEnginesNoSQL = this.employees[0].filters[3].data;
+        this.offices = this.employees[0].filters[4].data;
+        this.availabilities = this.employees[0].filters[5].data;
+        this.typesOfProject = this.employees[0].filters[6].data;
+        this.employees = this.employees.splice(1);
+      });
   };
-
-  // getEmployees() {
-  //   this._employeeService.getEmployees()
-  //     .subscribe(employees => this.employees = employees,
-  //     error => this.errorMessage = <any>error);
-  // };
-
-  // getFiltersData() {
-  //   return this._filterService.getFilterData()
-  //     .subscribe((filters) => {
-  //       this.filters = filters;
-  //       this.languages = this.filters.languages;
-  //     });
-  // };
-
-  getOffices() {
-    this._filterService.getOffices()
-      .subscribe(offices => this.offices = offices,
-      error => this.errorMessage = <any>error);
-  }
-
-  getPlatforms() {
-    this._filterService.getPlatforms()
-      .subscribe(platforms => this.platforms = platforms,
-      error => this.errorMessage = <any>error);
-  }
-
-  getDbEnginesRDBMS() {
-    this._filterService.getDbEnginesRDBMS()
-      .subscribe(dbEnginesRDBMS => this.dbEnginesRDBMS = dbEnginesRDBMS,
-      error => this.errorMessage = <any>error);
-  }
-
-  getDbEnginesNoSQL() {
-    this._filterService.getDbEnginesNoSQL()
-      .subscribe(dbEnginesNoSQL => this.dbEnginesNoSQL = dbEnginesNoSQL,
-      error => this.errorMessage = <any>error);
-  }
-
-  getAvailabilities() {
-    this._filterService.getAvailabilities()
-      .subscribe(availabilities => this.availabilities = availabilities,
-      error => this.errorMessage = <any>error);
-  }
-
-  getTypesOfProject() {
-    this._filterService.getTypesOfProject()
-      .subscribe(typesOfProject => this.typesOfProject = typesOfProject);
-  }
 
   clearSearchTerm() {
     this.inputValue = '';
@@ -108,17 +67,10 @@ export class EmployeesListComponent implements OnInit {
     }
   }
 
-  constructor(private _employeeService: EmployeeService, private _filterService: FilterService) { }
+  constructor(private _employeeService: EmployeeService) { }
 
   ngOnInit() {
-    this.getEmployees();
-    // this.getFiltersData();
-    this.getPlatforms();
-    this.getDbEnginesRDBMS();
-    this.getDbEnginesNoSQL();
-    this.getOffices();
-    this.getAvailabilities();
-    this.getTypesOfProject();
+    this.getData();
   }
 
 }

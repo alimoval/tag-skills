@@ -10,9 +10,9 @@ export class EmployeeService {
 
   constructor(private _http: Http) { }
 
-  // Http employees request gererated here
+  // Http employees and filters request is sent here
 
-  getEmployees(): Observable<Employee[]> {
+  getEmployees(): Observable<any[]> {
     return this._http.get(this._employeesUrl)
       .map(response => response.json().data as Employee[])
       .catch(this._handleError);

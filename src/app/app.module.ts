@@ -11,7 +11,6 @@ import { InMemoryDataService } from './in-memory-data.service';
 import { AppComponent } from './app.component';
 import { EmployeesListComponent } from './employees-list/employees-list.component';
 import { EmployeeService } from './employees-list/employee-service/employee.service';
-import { FilterService } from './employees-list/filter-service/filter.service';
 import { SearchFilterPipe } from './employees-list/search-filter-pipe/search-filter.pipe';
 import { SortPipe } from './employees-list/sort-pipe/sort.pipe';
 
@@ -30,8 +29,7 @@ import { SortPipe } from './employees-list/sort-pipe/sort.pipe';
     InMemoryWebApiModule.forRoot(InMemoryDataService),
   ],
   providers: [
-    EmployeeService,
-    FilterService
+    EmployeeService
   ],
   bootstrap: [ AppComponent ]
 })

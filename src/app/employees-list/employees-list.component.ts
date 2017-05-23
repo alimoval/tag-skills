@@ -28,9 +28,10 @@ export class EmployeesListComponent implements OnInit {
   public prevCheckbox: any;
   public tags: any[] = [];
   public sliceLevel = 4;
-  public errorMessage: any = '';
 
   public filters: any[];
+
+  private _query: String = '';
 
   changeCheckboxFilterValue(event): Observable<string[]> {
     if (this.prevCheckbox) {
@@ -45,8 +46,12 @@ export class EmployeesListComponent implements OnInit {
     this.sortValue = direction;
   };
 
-  getData() {
-    this._employeeService.getEmployees()
+// Single subscribe to request to DB to get employees and filters data.
+// Connect component with response.
+
+  getData(queryString) {
+    let query = queryString;
+    this._employeeService.getEmployees(query)
       .subscribe(employees => {
         this.employees = employees;
         this.languages = this.employees[0].filters[0].data;
@@ -71,7 +76,7 @@ export class EmployeesListComponent implements OnInit {
 
   ngOnInit() {
 
-    this.getData();
+    this.getData(this._query);
   }
 
 }

@@ -42,7 +42,7 @@
             </div>
             <div class="ui list" [style.padding-top.px]="0">
               <div class="ui checkbox item" *ngFor="let language of languages | slice:0:sliceLevel" [style.padding.em]="0">
-                <input type="checkbox" name="{{language}}" value="{{language}}" (click)="changeCheckboxFilterValue($event)">
+                <input type="checkbox" data-type="language" name="{{language}}" value="{{language}}" (click)="changeCheckboxFilterValue($event)">
                 <label>{{language}}</label>
               </div>
             </div>
@@ -58,7 +58,7 @@
             </div>
             <div class="ui list" [style.padding-top.px]="0">
               <div class="ui checkbox item" *ngFor="let platform of platforms | slice:0:sliceLevel" [style.padding.em]="0">
-                <input type="checkbox" name="{{platform}}" value="{{platform}}" (click)="changeCheckboxFilterValue($event)" [checked]="">
+                <input type="checkbox" data-type="platform" name="{{platform}}" value="{{platform}}" (click)="changeCheckboxFilterValue($event)" [checked]="">
                 <label>{{platform}}</label>
               </div>
             </div>
@@ -74,7 +74,7 @@
             </div>
             <div class="ui list" [style.padding-top.px]="0">
               <div class="ui checkbox item" *ngFor="let dbEngineRDBMS of dbEnginesRDBMS | slice:0:sliceLevel" [style.padding.em]="0">
-                <input type="checkbox" name="{{dbEngineRDBMS}}" value="{{dbEngineRDBMS}}" (click)="changeCheckboxFilterValue($event)">
+                <input type="checkbox" data-type="dbEngineRDBMS" name="{{dbEngineRDBMS}}" value="{{dbEngineRDBMS}}" (click)="changeCheckboxFilterValue($event)">
                 <label>{{dbEngineRDBMS}}</label>
               </div>
             </div>
@@ -90,7 +90,7 @@
             </div>
             <div class="ui list" [style.padding-top.px]="0">
               <div class="ui checkbox item" *ngFor="let dbEngineNoSQL of dbEnginesNoSQL | slice:0:sliceLevel" [style.padding.em]="0">
-                <input type="checkbox" name="{{dbEngineNoSQL}}" value="{{dbEngineNoSQL}}" (click)="changeCheckboxFilterValue($event)">
+                <input type="checkbox" data-type="dbEngineNoSQL" name="{{dbEngineNoSQL}}" value="{{dbEngineNoSQL}}" (click)="changeCheckboxFilterValue($event)">
                 <label>{{dbEngineNoSQL}}</label>
               </div>
             </div>
@@ -123,7 +123,7 @@
           </div>
         </div>
         <div class="ui fluid list">
-          <div *ngFor="let employee of employees | SearchFilter:inputValue | sort:sortValue" class="item">
+          <div *ngFor="let employee of employees | sort:sortValue" class="item">
             <div class="ui segment">
               <div class="row">
                 <img class="ui avatar image" src="{{employee.imgSrc}}"> {{employee.name}}
@@ -135,7 +135,7 @@
               </div>
               <div class="ui horizontal list">
                 <div *ngFor="let item of employee.skills" class="item">
-                  <span [style.font-size.em]="0.8" class="button"><i class="battery {{item.level}} icon"></i>{{item.name}}</span>
+                  <span [style.font-size.em]="0.8"><i class="battery {{item.level}} icon"></i>{{item.name}}</span>
                 </div>
               </div>
 
@@ -158,7 +158,7 @@
             </div>
             <div class="ui list" [style.padding-top.px]="0">
               <div class="ui checkbox item" *ngFor="let typeOfProject of typesOfProject | slice:0:sliceLevel" [style.padding.em]="0">
-                <input type="checkbox" name="{{typeOfProject}}" value="{{typeOfProject}}" (click)="changeCheckboxFilterValue($event)">
+                <input type="checkbox" data-type="typeOfProject" name="{{typeOfProject}}" value="{{typeOfProject}}" (click)="changeCheckboxFilterValue($event)">
                 <label>{{typeOfProject}}</label>
               </div>
             </div>
@@ -174,7 +174,7 @@
             </div>
             <div class="ui list" [style.padding-top.px]="0">
               <div class="ui checkbox item" *ngFor="let availability of availabilities | slice:0:sliceLevel" [style.padding.em]="0">
-                <input type="checkbox" name="{{availability}}" value="{{availability}}" (click)="changeCheckboxFilterValue($event)">
+                <input type="checkbox" data-type="availability" name="{{availability}}" value="{{availability}}" (click)="changeCheckboxFilterValue($event)">
                 <label>{{availability}}</label>
               </div>
             </div>
@@ -190,7 +190,7 @@
             </div>
             <div class="ui list" [style.padding-top.px]="0">
               <div class="ui checkbox item" *ngFor="let office of offices | slice:0:sliceLevel" [style.padding.em]="0">
-                <input type="checkbox" name="{{office}}" value="{{office}}" (click)="changeCheckboxFilterValue($event)">
+                <input type="checkbox" data-type="office" name="{{office}}" value="{{office}}" (click)="changeCheckboxFilterValue($event)">
                 <label>{{office}}</label>
               </div>
             </div>

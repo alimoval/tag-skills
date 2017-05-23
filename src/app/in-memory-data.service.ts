@@ -171,7 +171,7 @@ export class InMemoryDataService implements InMemoryDbService {
                                 position: 'Android Developer',
                                 availability: '',
                                 office: 'Lviv',
-                                imgSrc: 'https://lh4.googleusercontent.com/-RUiGmSwTfLs/AAAAAAAAAAI/AAAAAAAAAE8/1BEPWoTmaC8/photo.jpg',
+                                imgSrc: 'https://s-media-cache-ak0.pinimg.com/236x/10/78/06/10780622b72a55443cd1e0dd4bd519a2.jpg?noindex=1',
                                 skillIcon: 'android',
                                 warning: false,
                                 skills: [

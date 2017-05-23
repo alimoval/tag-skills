@@ -1,5 +1,5 @@
 import { Component, OnInit, Output, Input, EventEmitter } from '@angular/core';
-import { EmployeeService } from './employee-service/employee.service';
+import { RequestService } from './request-service/request.service';
 
 import { Observable } from 'rxjs/Observable';
 
@@ -31,7 +31,7 @@ export class EmployeesListComponent implements OnInit {
 
   public filters: any[];
 
-  private _query: String = '';
+  private _queryString: String = '';
 
   changeCheckboxFilterValue(event): Observable<string[]> {
     if (this.prevCheckbox) {
@@ -39,6 +39,9 @@ export class EmployeesListComponent implements OnInit {
     }
     this.prevCheckbox = event.target;
     this.tags.push(event.target.value);
+    this._queryString = `${event.target.getAttribute('data-type')}=${event.target.value.toLowerCase()}`;
+    console.log(this._queryString);
+    this.getFilteredData();
     return this.inputValue = (event.target.checked) ? event.target.value.toLowerCase() : '';
   };
 
@@ -49,9 +52,8 @@ export class EmployeesListComponent implements OnInit {
 // Single subscribe to request to DB to get employees and filters data.
 // Connect component with response.
 
-  getData(queryString) {
-    let query = queryString;
-    this._employeeService.getEmployees(query)
+  getData() {
+    this._requestService.getData()
       .subscribe(employees => {
         this.employees = employees;
         this.languages = this.employees[0].filters[0].data;
@@ -65,18 +67,27 @@ export class EmployeesListComponent implements OnInit {
       });
   };
 
+  getFilteredData() {
+    this._requestService.getFilteredData(this._queryString)
+      .subscribe(employees => {
+        this.employees = employees;
+
+      });
+  };
+
   clearSearchTerm() {
     this.inputValue = '';
+    this._queryString = '';
+    this.getData();
     if (this.prevCheckbox) {
       this.prevCheckbox.checked = false;
     }
   }
 
-  constructor(private _employeeService: EmployeeService) { }
+  constructor(private _requestService: RequestService) { }
 
   ngOnInit() {
-
-    this.getData(this._query);
+    this.getData();
   }
 
 }

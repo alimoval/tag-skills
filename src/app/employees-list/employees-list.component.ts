@@ -1,5 +1,5 @@
 import { Component, OnInit, Output, Input, EventEmitter } from '@angular/core';
-import { RequestService } from './request-service/request.service';
+import { EmployeeService } from './employee-service/employee.service';
 
 import { Observable } from 'rxjs/Observable';
 
@@ -56,6 +56,9 @@ export class EmployeesListComponent implements OnInit {
     this._requestService.getData()
       .subscribe(employees => {
         this.employees = employees;
+        this.filters = employees[0].filters;
+        this.filters.splice(4);
+        console.log(this.filters);
         this.languages = this.employees[0].filters[0].data;
         this.platforms = this.employees[0].filters[1].data;
         this.dbEnginesRDBMS = this.employees[0].filters[2].data;
@@ -84,7 +87,7 @@ export class EmployeesListComponent implements OnInit {
     }
   }
 
-  constructor(private _requestService: RequestService) { }
+  constructor(private _requestService: EmployeeService) { }
 
   ngOnInit() {
     this.getData();

@@ -4,32 +4,35 @@ import { Http, Response, Headers, RequestOptions, URLSearchParams } from '@angul
 import { Observable } from 'rxjs/Observable';
 
 @Injectable()
-export class RequestService {
+export class EmployeeService {
 
-  private headers = new Headers({ 'Content-Type': 'application/json' });
-  private _employeesUrl = 'api/employees';
+  private _headers;
+  private _baseEmployeesUrl: string;
 
-  constructor(private _http: Http) { }
+  constructor(private _http: Http) {
+    this._headers = new Headers({ 'Content-Type': 'application/json' });
+    this._baseEmployeesUrl = 'api/employees';
+  }
 
   // Http employees and filters request.
   // Class RequestOptions as query with search parameters.
 
   getData(): Observable<any[]> {
-    return this._http.get(this._employeesUrl)
+    return this._http.get(this._baseEmployeesUrl)
       .map(response => response.json().data as Employee[])
       .catch(this._handleError);
   }
 
   getFilteredData(query): Observable<any[]> {
 
-    const headers = this.headers;
+    const headers = this._headers;
     const options = new RequestOptions({
       headers: headers,
       // Have to make a URLSearchParams with a query string
       search: new URLSearchParams(query)
     });
 
-    return this._http.get(this._employeesUrl, options)
+    return this._http.get(this._baseEmployeesUrl, options)
       .map(response => response.json().data as Employee[])
       .catch(this._handleError);
   }

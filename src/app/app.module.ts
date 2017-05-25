@@ -10,14 +10,12 @@ import { InMemoryDataService } from './in-memory-data.service';
 
 import { AppComponent } from './app.component';
 import { EmployeesListComponent } from './employees-list/employees-list.component';
-import { RequestService } from './employees-list/request-service/request.service';
-import { SearchFilterPipe } from './employees-list/search-filter-pipe/search-filter.pipe';
+import { EmployeeService } from './employees-list/employee-service/employee.service';
 import { SortPipe } from './employees-list/sort-pipe/sort.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
-    SearchFilterPipe,
     SortPipe,
     EmployeesListComponent,
   ],
@@ -29,7 +27,7 @@ import { SortPipe } from './employees-list/sort-pipe/sort.pipe';
     InMemoryWebApiModule.forRoot(InMemoryDataService),
   ],
   providers: [
-    RequestService
+    EmployeeService
   ],
   bootstrap: [ AppComponent ]
 })

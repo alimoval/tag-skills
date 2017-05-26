@@ -33,7 +33,7 @@
 
         <div class="ui horizontal selection list">
 
-          <div class="item" *ngFor="let filter of filters">
+          <div class="item" *ngFor="let filter of leftFilters">
             <div class="header">{{filter.name}}</div>
             <div class="ui horizontal selection list">
               <div class="item" [style.padding.px]="0">
@@ -41,61 +41,14 @@
               </div>
             </div>
             <div class="ui list" [style.padding-top.px]="0">
-              <div class="ui checkbox item" *ngFor="let language of languages | slice:0:sliceLevel" [style.padding.em]="0">
-                <input type="checkbox" data-type="language" name="{{language}}" value="{{language}}" (click)="changeCheckboxFilterValue($event)">
-                <label>{{language}}</label>
+              <div class="ui checkbox item" *ngFor="let item of filter.data | slice:0:sliceLevel" [style.padding.em]="0">
+                <input type="checkbox" data-type="item" name="{{item}}" value="{{item}}" (click)="changeCheckboxFilterValue($event)">
+                <label>{{item}}</label>
               </div>
             </div>
             <a (click)="sliceLevel = languages.length">more ...</a>
           </div>
 
-          <div class="item">
-            <div class="header">Platform</div>
-            <div class="ui horizontal selection list">
-              <div class="item" [style.padding.px]="0">
-                <a (click)="clearSearchTerm()">any</a>
-              </div>
-            </div>
-            <div class="ui list" [style.padding-top.px]="0">
-              <div class="ui checkbox item" *ngFor="let platform of platforms | slice:0:sliceLevel" [style.padding.em]="0">
-                <input type="checkbox" data-type="platform" name="{{platform}}" value="{{platform}}" (click)="changeCheckboxFilterValue($event)" [checked]="">
-                <label>{{platform}}</label>
-              </div>
-            </div>
-            <a (click)="sliceLevel = platforms.length">more ...</a>
-          </div>
-
-          <div class="item">
-            <div class="header">Db Engine RDBMS</div>
-            <div class="ui horizontal selection list">
-              <div class="item" [style.padding.px]="0">
-                <a (click)="clearSearchTerm()">any</a>
-              </div>
-            </div>
-            <div class="ui list" [style.padding-top.px]="0">
-              <div class="ui checkbox item" *ngFor="let dbEngineRDBMS of dbEnginesRDBMS | slice:0:sliceLevel" [style.padding.em]="0">
-                <input type="checkbox" data-type="dbEngineRDBMS" name="{{dbEngineRDBMS}}" value="{{dbEngineRDBMS}}" (click)="changeCheckboxFilterValue($event)">
-                <label>{{dbEngineRDBMS}}</label>
-              </div>
-            </div>
-            <a (click)="sliceLevel = dbEnginesRDBMS.length">more ...</a>
-          </div>
-
-          <div class="item">
-            <div class="header">Db Engine NoSQL</div>
-            <div class="ui horizontal selection list">
-              <div class="item" [style.padding.px]="0">
-                <a (click)="clearSearchTerm()">any</a>
-              </div>
-            </div>
-            <div class="ui list" [style.padding-top.px]="0">
-              <div class="ui checkbox item" *ngFor="let dbEngineNoSQL of dbEnginesNoSQL | slice:0:sliceLevel" [style.padding.em]="0">
-                <input type="checkbox" data-type="dbEngineNoSQL" name="{{dbEngineNoSQL}}" value="{{dbEngineNoSQL}}" (click)="changeCheckboxFilterValue($event)">
-                <label>{{dbEngineNoSQL}}</label>
-              </div>
-            </div>
-            <a (click)="sliceLevel = dbEnginesNoSQL.length">more ...</a>
-          </div>
         </div>
 
       </div>
@@ -149,49 +102,17 @@
 
         <div class="ui horizontal selection list">
 
-          <div class="item">
-            <div class="header">Type of Project</div>
+          <div class="item" *ngFor="let filter of rightFilters">
+            <div class="header">{{filter.name}}</div>
             <div class="ui horizontal selection list">
               <div class="item" [style.padding.px]="0">
                 <a (click)="clearSearchTerm()">any</a>
               </div>
             </div>
             <div class="ui list" [style.padding-top.px]="0">
-              <div class="ui checkbox item" *ngFor="let typeOfProject of typesOfProject | slice:0:sliceLevel" [style.padding.em]="0">
-                <input type="checkbox" data-type="typeOfProject" name="{{typeOfProject}}" value="{{typeOfProject}}" (click)="changeCheckboxFilterValue($event)">
-                <label>{{typeOfProject}}</label>
-              </div>
-            </div>
-            <a (click)="sliceLevel = languages.length">more ...</a>
-          </div>
-
-          <div class="item">
-            <div class="header">Availability</div>
-            <div class="ui horizontal selection list">
-              <div class="item" [style.padding.px]="0">
-                <a (click)="clearSearchTerm()">any</a>
-              </div>
-            </div>
-            <div class="ui list" [style.padding-top.px]="0">
-              <div class="ui checkbox item" *ngFor="let availability of availabilities | slice:0:sliceLevel" [style.padding.em]="0">
-                <input type="checkbox" data-type="availability" name="{{availability}}" value="{{availability}}" (click)="changeCheckboxFilterValue($event)">
-                <label>{{availability}}</label>
-              </div>
-            </div>
-            <a (click)="sliceLevel = languages.length">more ...</a>
-          </div>
-
-          <div class="item">
-            <div class="header">Office</div>
-            <div class="ui horizontal selection list">
-              <div class="item">
-                <a (click)="clearSearchTerm()">any</a>
-              </div>
-            </div>
-            <div class="ui list" [style.padding-top.px]="0">
-              <div class="ui checkbox item" *ngFor="let office of offices | slice:0:sliceLevel" [style.padding.em]="0">
-                <input type="checkbox" data-type="office" name="{{office}}" value="{{office}}" (click)="changeCheckboxFilterValue($event)">
-                <label>{{office}}</label>
+              <div class="ui checkbox item" *ngFor="let item of filter.data | slice:0:sliceLevel" [style.padding.em]="0">
+                <input type="checkbox" value="{{item}}" (click)="changeCheckboxFilterValue($event)">
+                <label>{{item}}</label>
               </div>
             </div>
             <a (click)="sliceLevel = languages.length">more ...</a>

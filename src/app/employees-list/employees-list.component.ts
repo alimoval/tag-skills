@@ -1,5 +1,5 @@
 import { Component, OnInit, Output, Input, EventEmitter } from '@angular/core';
-import { EmployeeService } from './employee-service/employee.service';
+import { EmployeesService } from './employees-service/employees.service';
 
 import { Observable } from 'rxjs/Observable';
 
@@ -29,7 +29,8 @@ export class EmployeesListComponent implements OnInit {
   public tags: any[] = [];
   public sliceLevel = 4;
 
-  public filters: any[];
+  public leftFilters: any[];
+  public rightFilters: any[];
 
   private _queryString: String = '';
 
@@ -55,18 +56,9 @@ export class EmployeesListComponent implements OnInit {
   getData() {
     this._requestService.getData()
       .subscribe(employees => {
-        this.employees = employees;
-        this.filters = employees[0].filters;
-        this.filters.splice(4);
-        console.log(this.filters);
-        this.languages = this.employees[0].filters[0].data;
-        this.platforms = this.employees[0].filters[1].data;
-        this.dbEnginesRDBMS = this.employees[0].filters[2].data;
-        this.dbEnginesNoSQL = this.employees[0].filters[3].data;
-        this.offices = this.employees[0].filters[4].data;
-        this.availabilities = this.employees[0].filters[5].data;
-        this.typesOfProject = this.employees[0].filters[6].data;
-        this.employees = this.employees.splice(1);
+        this.leftFilters = employees[0].filters.splice(0, 4);
+        this.rightFilters = employees[0].filters;
+        this.employees = employees.splice(1);
       });
   };
 
@@ -87,7 +79,7 @@ export class EmployeesListComponent implements OnInit {
     }
   }
 
-  constructor(private _requestService: EmployeeService) { }
+  constructor(private _requestService: EmployeesService) { }
 
   ngOnInit() {
     this.getData();

@@ -4,7 +4,7 @@ import { Http, Response, Headers, RequestOptions, URLSearchParams } from '@angul
 import { Observable } from 'rxjs/Observable';
 
 @Injectable()
-export class EmployeeService {
+export class EmployeesService {
 
   private _headers;
   private _baseEmployeesUrl: string;

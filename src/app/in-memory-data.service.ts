@@ -9,13 +9,13 @@ export class InMemoryDataService implements InMemoryDbService {
                 const employees = [
                         {
                                 filters: [
-                                        { name: 'languages', data: ['C#', 'ObjectiveC', 'PHP', 'Javascript', 'Java', 'Ruby', 'Python'] },
-                                        { name: 'platforms', data: ['Android', 'iOS', 'Backend', 'Frontend', 'Desktop'] },
-                                        { name: 'dbEnginesRDBMS', data: ['MySQL', 'MSSQL', 'PostgreSQL', 'SQLite'] },
-                                        { name: 'dbEnginesNoSQL', data: ['MongoDB', 'CouchDB', 'Redis', 'Cassandra'] },
-                                        { name: 'offices', data: ['Mykolaiv', 'Lviv', 'Kyiv', 'Clark'] },
-                                        { name: 'availabilities', data: ['GFL Expense', 'Looking for new experience'] },
-                                        { name: 'typesOfProject', data: ['Backend', 'Frontend', 'Mobile application'] }
+                                        { name: 'Languages', data: ['C#', 'ObjectiveC', 'PHP', 'Javascript', 'Java', 'Ruby', 'Python'] },
+                                        { name: 'Platforms', data: ['Android', 'iOS', 'Backend', 'Frontend', 'Desktop'] },
+                                        { name: 'Db engines RDBMS', data: ['MySQL', 'MSSQL', 'PostgreSQL', 'SQLite'] },
+                                        { name: 'Db engines NoSQL', data: ['MongoDB', 'CouchDB', 'Redis', 'Cassandra'] },
+                                        { name: 'Offices', data: ['Mykolaiv', 'Lviv', 'Kyiv', 'Clark'] },
+                                        { name: 'Availabilities', data: ['GFL Expense', 'Looking for new experience'] },
+                                        { name: 'Types of project', data: ['Backend', 'Frontend', 'Mobile application'] }
                                 ]
                         },
                         {

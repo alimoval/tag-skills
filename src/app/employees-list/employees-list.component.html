@@ -34,15 +34,15 @@
         <div class="ui horizontal selection list">
 
           <div class="item" *ngFor="let filter of leftFilters">
-            <div class="header">{{filter.name}}</div>
+            <div class="header" >{{filter.name}}</div>
             <div class="ui horizontal selection list">
               <div class="item" [style.padding.px]="0">
                 <a (click)="clearSearchTerm()">any</a>
               </div>
             </div>
             <div class="ui list" [style.padding-top.px]="0">
-              <div class="ui checkbox item" *ngFor="let item of filter.data | slice:0:sliceLevel" [style.padding.em]="0">
-                <input type="checkbox" data-type="item" name="{{item}}" value="{{item}}" (click)="changeCheckboxFilterValue($event)">
+              <div class="ui checkbox item" *ngFor="let item of filter.data | slice:0:sliceLevel" [style.padding.em]="0" [attr.data-type]="filter.type">
+                <input type="checkbox" name="{{item}}" value="{{item}}" (click)="changeCheckboxFilterValue($event)">
                 <label>{{item}}</label>
               </div>
             </div>
@@ -110,7 +110,7 @@
               </div>
             </div>
             <div class="ui list" [style.padding-top.px]="0">
-              <div class="ui checkbox item" *ngFor="let item of filter.data | slice:0:sliceLevel" [style.padding.em]="0">
+              <div class="ui checkbox item" *ngFor="let item of filter.data | slice:0:sliceLevel" [style.padding.em]="0" [attr.data-type]="filter.type">
                 <input type="checkbox" value="{{item}}" (click)="changeCheckboxFilterValue($event)">
                 <label>{{item}}</label>
               </div>

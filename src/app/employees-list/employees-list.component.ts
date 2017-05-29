@@ -31,16 +31,17 @@ export class EmployeesListComponent implements OnInit {
 
   public leftFilters: any[];
   public rightFilters: any[];
+  public filterType: string;
 
   private _queryString: String = '';
 
-  changeCheckboxFilterValue(event): Observable<string[]> {
+  changeCheckboxFilterValue(event, type): Observable<string[]> {
     if (this.prevCheckbox) {
       this.prevCheckbox.checked = false;
     }
     this.prevCheckbox = event.target;
     this.tags.push(event.target.value);
-    this._queryString = `${event.target.getAttribute('data-type')}=${event.target.value.toLowerCase()}`;
+    this._queryString = `${event.target.parentNode.getAttribute('data-type')}=${event.target.value.toLowerCase()}`;
     console.log(this._queryString);
     this.getFilteredData();
     return this.inputValue = (event.target.checked) ? event.target.value.toLowerCase() : '';

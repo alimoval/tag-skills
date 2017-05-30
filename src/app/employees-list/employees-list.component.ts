@@ -1,5 +1,5 @@
 import { Component, OnInit, Output, Input, EventEmitter } from '@angular/core';
-import { EmployeesService } from './employees-service/employees.service';
+import { EmployeesService } from './employees.service';
 
 import { Observable } from 'rxjs/Observable';
 
@@ -51,8 +51,10 @@ export class EmployeesListComponent implements OnInit {
     this.sortValue = direction;
   };
 
-// Single subscribe to request to DB to get employees and filters data.
-// Connect component with response.
+/**
+ * Single subscribe to request to DB to get employees and filters data.
+ * Connect component with response.
+ */
 
   getData() {
     this._requestService.getData()

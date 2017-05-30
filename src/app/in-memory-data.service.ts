@@ -1,19 +1,24 @@
+/**
+ * angular-in-memory-web-api is a virtual data base.
+ */
+
 import { InMemoryDbService } from 'angular-in-memory-web-api';
 
 export class InMemoryDataService implements InMemoryDbService {
-
-        // Create virtual Data Base
 
         createDb() {
 
                 const employees = [
                         {
                                 filters: [
+                                        // tslint:disable-next-line:max-line-length
                                         { name: 'Languages', type: 'languages', data: ['C#', 'ObjectiveC', 'PHP', 'Javascript', 'Java', 'Ruby', 'Python'] },
                                         { name: 'Platforms', type: 'platforms', data: ['Android', 'iOS', 'Backend', 'Frontend', 'Desktop'] },
+                                        // tslint:disable-next-line:max-line-length
                                         { name: 'Db engines RDBMS', type: 'dbEnginesRDBMS', data: ['MySQL', 'MSSQL', 'PostgreSQL', 'SQLite'] },
                                         { name: 'Db engines NoSQL', type: 'dbEnginesNoSQL', data: ['MongoDB', 'CouchDB', 'Redis', 'Cassandra'] },
                                         { name: 'Offices', type: 'offices', data: ['Mykolaiv', 'Lviv', 'Kyiv', 'Clark'] },
+                                        // tslint:disable-next-line:max-line-length
                                         { name: 'Availabilities', type: 'availabilities', data: ['GFL Expense', 'Looking for new experience'] },
                                         { name: 'Types of project', type: 'typesOfProject', data: ['Backend', 'Frontend', 'Mobile application'] }
                                 ]
@@ -55,8 +60,8 @@ export class InMemoryDataService implements InMemoryDbService {
                                 platforms: ['Backend', 'Frontend'],
                                 dbEnginesRDBMS: ['MySQL'],
                                 dbEnginesNoSQL: [],
-                                availabilities: 'Looking for new experience',
-                                offices: 'Lviv',
+                                availabilities: ['Looking for new experience'],
+                                offices: ['Lviv'],
                                 typesOfProject: ['Backend', 'Frontend'],
                                 imgSrc: 'http://www.piedpiper.com/app/themes/pied-piper/dist/images/richard.png',
                                 skillIcon: 'tv',
@@ -84,8 +89,8 @@ export class InMemoryDataService implements InMemoryDbService {
                                 platforms: ['Backend', 'Frontend'],
                                 dbEnginesRDBMS: ['MySQL'],
                                 dbEnginesNoSQL: [],
-                                availabilities: 'Looking for new experience',
-                                offices: 'Lviv',
+                                availabilities: ['Looking for new experience'],
+                                offices: ['Lviv'],
                                 typesOfProject: ['Backend', 'Frontend'],
                                 imgSrc: 'http://themifycloud.com/demos/templates/joli/assets/images/users/avatar.jpg',
                                 skillIcon: 'database',
@@ -111,8 +116,8 @@ export class InMemoryDataService implements InMemoryDbService {
                                 platforms: ['Frontend'],
                                 dbEnginesRDBMS: [],
                                 dbEnginesNoSQL: [],
-                                availabilities: 'Looking for new experience GFL Expense',
-                                offices: 'Mykolaiv',
+                                availabilities: ['Looking for new experience GFL Expense'],
+                                offices: ['Mykolaiv'],
                                 typesOfProject: ['Frontend'],
                                 imgSrc: 'http://www.picshare.ru/uploads/170425/YxI8nEpPGK.jpg',
                                 skillIcon: 'tv',
@@ -134,8 +139,8 @@ export class InMemoryDataService implements InMemoryDbService {
                                 platforms: ['Backend', 'iOS'],
                                 dbEnginesRDBMS: ['MySQL'],
                                 dbEnginesNoSQL: [],
-                                availabilities: 'Looking for new experience',
-                                offices: 'Clark',
+                                availabilities: ['Looking for new experience'],
+                                offices: ['Clark'],
                                 typesOfProject: ['Backend', 'Mobile application'],
                                 imgSrc: 'http://www.piedpiper.com/app/themes/pied-piper/dist/images/dinesh.png',
                                 skillIcon: 'apple',
@@ -161,9 +166,10 @@ export class InMemoryDataService implements InMemoryDbService {
                                 platforms: ['Frontend'],
                                 dbEnginesRDBMS: [],
                                 dbEnginesNoSQL: ['MongoDB'],
-                                availabilities: 'Looking for new experience',
-                                offices: 'Kyiv',
+                                availabilities: ['Looking for new experience'],
+                                offices: ['Kyiv'],
                                 typesOfProject: ['Frontend', 'Mobile application'],
+                                // tslint:disable-next-line:max-line-length
                                 imgSrc: 'http://demo.cuckoothemes.com/cuckootap/features/wp-content/uploads/2013/10/it_roy_trenneman1-225x225.jpg',
                                 skillIcon: 'tv',
                                 warning: false,
@@ -185,9 +191,10 @@ export class InMemoryDataService implements InMemoryDbService {
                                 platforms: ['Android'],
                                 dbEnginesRDBMS: ['SQLite'],
                                 dbEnginesNoSQL: [],
-                                availabilities: '',
-                                offices: 'Lviv',
+                                availabilities: [],
+                                offices: ['Lviv'],
                                 typesOfProject: ['Mobile application'],
+                                // tslint:disable-next-line:max-line-length
                                 imgSrc: 'http://demo.cuckoothemes.com/cuckootap/features/wp-content/uploads/2013/10/it_maurice_moss1-225x225.jpg',
                                 skillIcon: 'android',
                                 warning: false,
@@ -208,8 +215,8 @@ export class InMemoryDataService implements InMemoryDbService {
                                 platforms: ['Android'],
                                 dbEnginesRDBMS: ['SQLite'],
                                 dbEnginesNoSQL: [],
-                                availabilities: '',
-                                offices: 'Lviv',
+                                availabilities: [],
+                                offices: ['Lviv'],
                                 typesOfProject: ['Mobile application'],
                                 imgSrc: 'https://s-media-cache-ak0.pinimg.com/236x/10/78/06/10780622b72a55443cd1e0dd4bd519a2.jpg?noindex=1',
                                 skillIcon: 'android',
@@ -230,8 +237,8 @@ export class InMemoryDataService implements InMemoryDbService {
                                 platforms: ['Backend', 'Frontend'],
                                 dbEnginesRDBMS: ['MSSQL'],
                                 dbEnginesNoSQL: [],
-                                availabilities: '',
-                                offices: 'Kyiv',
+                                availabilities: [],
+                                offices: ['Kyiv'],
                                 typesOfProject: ['Backend', 'Frontend'],
                                 imgSrc: 'https://www.dorksandlosers.com/wp-content/uploads/2011/02/Douglas_Reynholm-2.jpg',
                                 skillIcon: 'moon',
@@ -254,8 +261,8 @@ export class InMemoryDataService implements InMemoryDbService {
                                 platforms: ['Backend'],
                                 dbEnginesRDBMS: ['PostgreSQL'],
                                 dbEnginesNoSQL: [],
-                                availabilities: '',
-                                offices: 'Kyiv',
+                                availabilities: [],
+                                offices: ['Kyiv'],
                                 typesOfProject: ['Backend'],
                                 imgSrc: 'http://www.aveleyman.com/Gallery/ActorsM/tve89036-20060204-1842.jpg',
                                 skillIcon: 'joomla',

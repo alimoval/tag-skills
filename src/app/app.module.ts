@@ -12,11 +12,13 @@ import { AppComponent } from './app.component';
 import { EmployeesListComponent } from './employees-list/employees-list.component';
 import { EmployeesService } from './employees-list/employees.service';
 import { SortPipe } from './employees-list/sort-pipe/sort.pipe';
+import { SearchFilterPipe } from './employees-list/search-filter-pipe/search-filter.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     SortPipe,
+    SearchFilterPipe,
     EmployeesListComponent,
   ],
   imports: [

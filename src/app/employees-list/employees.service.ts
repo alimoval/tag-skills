@@ -6,29 +6,25 @@ import { Observable } from 'rxjs/Observable';
 @Injectable()
 export class EmployeesService {
 
-  private _headers;
   private _baseEmployeesUrl: string;
 
   constructor(private _http: Http) {
-    this._headers = new Headers({ 'Content-Type': 'application/json' });
     this._baseEmployeesUrl = 'api/employees';
   }
 
-  // Http employees and filters request.
-  // Class RequestOptions as query with search parameters.
+/**
+ * Employees and filters request by http.get method
+ * Class RequestOptions as query with search parameters.
+ */
 
-  getData(): Observable<any[]> {
-    return this._http.get(this._baseEmployeesUrl)
-      .map(response => response.json().data as Employee[])
-      .catch(this._handleError);
-  }
+  getData(query?): Observable<any[]> {
+    if (!query) {
+      return this._http.get(this._baseEmployeesUrl)
+        .map(response => response.json().data as Employee[])
+        .catch(this._handleError);
+    }
 
-  getFilteredData(query): Observable<any[]> {
-
-    const headers = this._headers;
     const options = new RequestOptions({
-      headers: headers,
-      // Have to make a URLSearchParams with a query string
       search: new URLSearchParams(query)
     });
 

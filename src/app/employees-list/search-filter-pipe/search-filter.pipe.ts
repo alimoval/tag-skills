@@ -1,5 +1,5 @@
 /**
- * This module depricated. First logic serched query on clients` side.
+ * Module serch query on clients` side. Only in names.
  */
 
 import { Pipe, PipeTransform } from '@angular/core';
@@ -15,18 +15,19 @@ export class SearchFilterPipe implements PipeTransform {
     }
     return input
       .filter(employee => {
-        return !employee.skills.every(skill => {
-          return !`${skill.name.toLowerCase()}`
-            .includes(searchTerm);
-        })
-          || `${employee.name.toLowerCase()}`
-            .includes(searchTerm)
-          || `${employee.availability.toLowerCase()}`
-            .includes(searchTerm)
-          || `${employee.office.toLowerCase()}`
-            .includes(searchTerm)
-          || `${employee.position.toLowerCase()}`
-            .includes(searchTerm);
+        return `${employee.name.toLowerCase()}`
+          .includes(searchTerm)
+          // || !employee.skills.every(skill => {
+          //   return !`${skill.name.toLowerCase()}`
+          //     .includes(searchTerm);
+          // })
+          // || `${employee.availability.toLowerCase()}`
+          //   .includes(searchTerm)
+          // || `${employee.office.toLowerCase()}`
+          //   .includes(searchTerm)
+          // || `${employee.position.toLowerCase()}`
+          //   .includes(searchTerm)
+            ;
       }
       );
   }

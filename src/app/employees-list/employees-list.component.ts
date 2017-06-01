@@ -13,16 +13,7 @@ import 'rxjs/add/operator/catch';
 })
 export class EmployeesListComponent implements OnInit {
 
-  title = 'Tag Skills';
-
   public employees: any[];
-  public languages: any[];
-  public platforms: any[];
-  public dbEnginesRDBMS: any[];
-  public dbEnginesNoSQL: any[];
-  public typesOfProject: any[];
-  public availabilities: any[];
-  public offices: any[];
   public inputValue = '';
   public sortValue = '';
   public prevCheckbox: any;
@@ -66,7 +57,7 @@ export class EmployeesListComponent implements OnInit {
   };
 
   getFilteredData() {
-    this._requestService.getFilteredData(this._queryString)
+    this._requestService.getData(this._queryString)
       .subscribe(employees => {
         this.employees = employees;
 

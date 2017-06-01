@@ -22,7 +22,6 @@ export class EmployeesListComponent implements OnInit {
 
   public leftFilters: any[];
   public rightFilters: any[];
-  public filterType: string;
 
   private _queryString: String = '';
 
@@ -33,8 +32,7 @@ export class EmployeesListComponent implements OnInit {
     this.prevCheckbox = event.target;
     this.tags.push(event.target.value);
     this._queryString = `${event.target.parentNode.getAttribute('data-type')}=${event.target.value.toLowerCase()}`;
-    console.log(this._queryString);
-    this.getFilteredData();
+    this.getData(this._queryString);
     return this.inputValue = (event.target.checked) ? event.target.value.toLowerCase() : '';
   };
 
@@ -42,26 +40,26 @@ export class EmployeesListComponent implements OnInit {
     this.sortValue = direction;
   };
 
-/**
- * Single subscribe to request to DB to get employees and filters data.
- * Connect component with response.
- */
+  /**
+   * Single subscribe to request to DB to get employees and filters data.
+   * Connect component with response.
+   */
 
-  getData() {
-    this._requestService.getData()
-      .subscribe(employees => {
-        this.leftFilters = employees[0].filters.splice(0, 4);
-        this.rightFilters = employees[0].filters;
-        this.employees = employees.splice(1);
-      });
-  };
-
-  getFilteredData() {
-    this._requestService.getData(this._queryString)
-      .subscribe(employees => {
-        this.employees = employees;
-
-      });
+  getData(query?) {
+    if (!query) {
+      this._requestService.getData()
+        .subscribe(employees => {
+          this.leftFilters = employees[0].filters.splice(0, 4);
+          this.rightFilters = employees[0].filters;
+          this.employees = employees.splice(1);
+        });
+    } else {
+      const queryString = query;
+      this._requestService.getData(queryString)
+        .subscribe(employees => {
+          this.employees = employees;
+        });
+    }
   };
 
   clearSearchTerm() {

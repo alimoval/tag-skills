@@ -11,32 +11,31 @@ import 'rxjs/add/operator/map';
 @Injectable()
 export class SearchService {
 
-   public inputEvents: Subject<KeyboardEvent> = new Subject<KeyboardEvent>();
+      public inputEvents: Subject<KeyboardEvent> = new Subject<KeyboardEvent>();
 
-   private _baseEmployeesUrl: string;
+      private _baseEmployeesUrl: string;
 
-   onInput(query: KeyboardEvent) {
-      this.inputEvents.next(query);
-   }
+      onInput(query: KeyboardEvent) {
+            this.inputEvents.next(query);
+      }
 
-   constructor(private _http: Http) {
-      this._baseEmployeesUrl = 'api/employees';
+      constructor(private _http: Http) {
+            this._baseEmployeesUrl = 'api/employees';
 
-      const options = new RequestOptions({
-         search: new URLSearchParams(this.inputEvents.toString())
-      });
+            const options = new RequestOptions({
+                  search: new URLSearchParams(this.inputEvents.toString())
+            });
 
-      this.inputEvents
-         .debounceTime(300)
-         .map((event: KeyboardEvent) => (event.target as HTMLInputElement).value)
-         .filter((query: string) => query.length >= 1)
-         .switchMap((query: string) =>
-            this._http.get(this._baseEmployeesUrl, options)
-         )
-         .map(res => res.json())
-         .subscribe(res => { this.repos = res.items });
+            this.inputEvents
+                  .debounceTime(300)
+                  .map((event: KeyboardEvent) => (event.target as HTMLInputElement).value)
+                  .filter((query: string) => query.length >= 1)
+                  .switchMap((query: string) =>
+                        this._http.get(this._baseEmployeesUrl, options)
+                  )
+                  .map(res => res.json())
+                  .subscribe();
 
-   }
-
+      }
 
 }

@@ -13,7 +13,7 @@ import 'rxjs/add/operator/catch';
 })
 export class EmployeesListComponent implements OnInit {
 
-  public employees: any[];
+  public employees: Employee[];
   public inputValue = '';
   public sortValue = '';
   public prevCheckbox: any;
@@ -39,6 +39,10 @@ export class EmployeesListComponent implements OnInit {
   changeSortValue(direction) {
     this.sortValue = direction;
   };
+
+  onSearchInput(array): void {
+    this.employees = array.data;
+  }
 
   /**
    * Single subscribe to request to DB to get employees and filters data.

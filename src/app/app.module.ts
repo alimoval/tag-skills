@@ -13,6 +13,7 @@ import { EmployeesListComponent } from './employees-list/employees-list.componen
 import { EmployeesService } from './employees-list/employees.service';
 import { SortPipe } from './employees-list/sort-pipe/sort.pipe';
 import { SearchFilterPipe } from './employees-list/search-filter-pipe/search-filter.pipe';
+import { InputSearchComponent } from './employees-list/input-search/input-search.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { SearchFilterPipe } from './employees-list/search-filter-pipe/search-fil
     SortPipe,
     SearchFilterPipe,
     EmployeesListComponent,
+    InputSearchComponent,
   ],
   imports: [
     BrowserModule,

@@ -10,10 +10,7 @@
 
     <div class="ten wide column">
       <div class="row">
-        <div class="ui icon input fluid">
-          <input type="text" placeholder="Search..." (input)="inputValue = $event.target.value" [value]="inputValue">
-          <i class="remove link icon" (click)="clearSearchTerm()"></i>
-        </div>
+        <input-search (event)='onSearchInput($event)'></input-search>
       </div>
     </div>
 

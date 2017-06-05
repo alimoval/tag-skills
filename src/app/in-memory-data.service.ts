@@ -126,8 +126,8 @@ export class InMemoryDataService implements InMemoryDbService {
                                         { name: 'Frontend', level: 'high' },
                                         { name: 'REST API', level: 'low' },
                                         { name: 'Javascript', level: 'medium' },
-                                        { name: 'Angular', level: 'low' },
-                                        { name: 'jQuery', level: 'low' },
+                                        { name: 'Angular 2', level: 'medium' },
+                                        { name: 'jQuery', level: 'medium' },
                                         { name: 'Git', level: 'medium' },
                                 ]
                         },

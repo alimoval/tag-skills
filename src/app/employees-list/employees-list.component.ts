@@ -45,6 +45,7 @@ export class EmployeesListComponent implements OnInit {
     if(this.employees.length >= 9) {
       this.employees = this.employees.splice(1);
     }
+    this.prevCheckbox.checked = false;
   }
 
   /**

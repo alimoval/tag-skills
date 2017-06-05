@@ -22,8 +22,7 @@ export class EmployeesService {
   getData(query?): Observable<any[]> {
     if (!query) {
       return this._http.get(this._baseEmployeesUrl)
-        .map(response => response.json().data as Employee[])
-        .catch(this._handleError);
+        .map(response => response.json().data as Employee[]);
     } else {
 
       const options = new RequestOptions({
@@ -32,18 +31,8 @@ export class EmployeesService {
       });
 
       return this._http.get(this._baseEmployeesUrl, options)
-        .map(response => response.json().data as Employee[])
-        .catch(this._handleError);
+        .map(response => response.json().data as Employee[]);
     }
-
-
-  }
-
-  private _handleError(error: any) {
-    const errMsg = (error.message) ? error.message :
-      error.status ? `${error.status} - ${error.statusText}` : 'Server error';
-    console.error(errMsg); // log to console instead
-    return Observable.throw(errMsg);
   }
 
 }

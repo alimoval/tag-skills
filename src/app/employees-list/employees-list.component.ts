@@ -42,6 +42,9 @@ export class EmployeesListComponent implements OnInit {
 
   onSearchInput(array): void {
     this.employees = array.data;
+    if(this.employees.length >= 9) {
+      this.employees = this.employees.splice(1);
+    }
   }
 
   /**
